@@ -10,17 +10,32 @@ using namespace std;
 #define pb push_back
 #define debug(x) std::cout << #x << ": " << x << endl
 
-typedef array<array<int, 8>, 8> Board;
+template<class T>
+using Board = array<array<T, 8>, 8>;
+
 #define pii pair<int, int>
 #define X first
 #define Y second
+#define cor2(point) point.X, point.Y
+#define cor(point) point.X][point.Y
 #define mp make_pair
 pii operator+(const pii&x, const pii&y) { return mp(x.X+y.X, x.Y+y.Y);}
 pii operator-(const pii&x, const pii&y) { return mp(x.X-y.X, x.Y-y.Y);}
 
+pii dxdy[8] = 
+{
+    {1,2},{-1,2},{1,-2},{-1,-2},
+    {2,1},{-2,1},{2,-1},{-2,-1}
+};
+
+bool inrange(pii x)
+{
+    return (x.X>=0) && (x.Y>=0) && (x.X<N) && (x.Y<N);
+}
+
 std::ostream& operator<<(std::ostream& os, pii& p) //tested
 {
-    os << p.first << " " <<  p.second;
+    os << "("<<  p.first << ", " <<  p.second << ")";
     return os;
 }
 
