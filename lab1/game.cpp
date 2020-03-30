@@ -16,6 +16,8 @@ signed main()
     solvers.pb(new IDDFS());
     solvers.pb(new Astar());
     solvers.pb(new IDA());
+    N = 10; //effective test by dfs
+    //iddfs test segment fault expected?, shouldnt it be TLE?
     rep(i, 0, solvers.size()) cout << "id " << i << ":, algorithm :" << solvers[i]->name << endl; 
     cout << "input solver id:" << endl;
     int id; int sx, sy, tx, ty;

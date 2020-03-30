@@ -35,8 +35,8 @@ int IDA::dfs(int d, pii s, pii p, pii t, int maxd)
     for(auto &di : dxdy)
     {
         pii nxt = s + di;
-        int nxtd = d + 1 - h(s,t) + h(nxt,t); //nxt heuristic
         if(!inrange(nxt)||vis[cor(nxt)] != pii(-1,-1)) continue; //typo, continue to break
+        int nxtd = d + 1 - h(s,t) + h(nxt,t); //nxt heuristic
         //if(!inrange(nxt)) break;
         ret = min(ret, dfs(nxtd, nxt, s, t, maxd)); //constrain here is ok, too, or use minus to zero
         if(ret == -1) break; //this may reduce node expanded

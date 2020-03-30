@@ -7,7 +7,7 @@
 using namespace std;
 
 //hyper params
-#define N 8
+int N = 8;
 #define C_TL 10.0 //time limit
 
 //useful macros
@@ -16,7 +16,7 @@ using namespace std;
 #define debug(x) std::cout << #x << ": " << x << endl
 
 template<class T>
-using Board = array<array<T, 8>, 8>;
+using Board = vector<vector<T>>; //elastic, init size with init(), which uses mutable N
 
 //Timer 
 // S: start(hidden), T : end (hidden), D : calc delta by hidden, P print car, R : all wrapped
@@ -104,7 +104,7 @@ void Solver::construct_path(vector<pii> &path, pii t)
 
 void Solver::init()
 {
-    vis = Board<pii>();
+    vis = vector<vector<pii>>(N, vector<pii>(N)); //elastic board
     rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));
     //cout << name << " solver initialized." << endl;
 }

@@ -29,9 +29,9 @@ pair<vector<pii>, int> BFS::solve(pii s, pii t, double TL)
         pii cur = q.front(); q.pop();
         node_expanded++;
         if(cur == t) break;
-        for(auto &d : dxdy)
+        for(auto &di : dxdy)
         {
-            pii nxt = cur + d;
+            pii nxt = cur + di;
             if(!inrange(nxt) || vis[cor(nxt)] != pii(-1,-1)) continue;
             //if(nxt == t) 
             q.push(nxt);
@@ -39,6 +39,7 @@ pair<vector<pii>, int> BFS::solve(pii s, pii t, double TL)
         }
     }
     )
+    //print();
     Solver::construct_path(path, t);
 
     return mp(path, node_expanded);
