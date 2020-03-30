@@ -1,11 +1,14 @@
 #ifndef CUSTOM_H
 #define CUSTOM_H
 
+//headers and namespaces
 #include <bits/stdc++.h>
 using namespace std;
 
+//hyper params
 #define N 8
 
+//useful macros
 #define rep(i, s, t) for(int i = s, _t = (t); i < _t; i++)
 #define pb push_back
 #define debug(x) std::cout << #x << ": " << x << endl
@@ -13,6 +16,7 @@ using namespace std;
 template<class T>
 using Board = array<array<T, 8>, 8>;
 
+//Timer 
 // S: start(hidden), T : end (hidden), D : calc delta by hidden, P print car, R : all wrapped
 // C: end and calc by end
 #define TIMER_S auto ___st_time = chrono::high_resolution_clock::now();
@@ -20,8 +24,9 @@ using Board = array<array<T, 8>, 8>;
 #define TIMER_D(var) double var = chrono::duration_cast<chrono::nanoseconds>(___ed_time - ___st_time).count(); var *= 1e-9;
 #define TIMER_C(var) TIMER_T TIMER_D(var)
 #define TIMER_P(var) cout << "Time taken by the solver is :" << fixed << var << setprecision(9);  cout << " sec" << endl;
-#define TIMER(xxx) TIMER_S xxx TIMER_T TIMER_D(_tt) TIMER_P(_tt)
+#define TIMER(xxx) TIMER_S xxx TIMER_C(_tt) TIMER_P(_tt)
 
+//pair<int, int> make useful
 #define pii pair<int, int>
 #define X first
 #define Y second
@@ -30,7 +35,9 @@ using Board = array<array<T, 8>, 8>;
 #define mp make_pair
 pii operator+(const pii&x, const pii&y) { return mp(x.X+y.X, x.Y+y.Y);}
 pii operator-(const pii&x, const pii&y) { return mp(x.X-y.X, x.Y-y.Y);}
+int manhattan_distance(const pii&x, const pii&y){return abs(x.X-y.X) + abs(x.Y-y.Y);}
 
+//moving 
 pii dxdy[8] = 
 {
     {1,2},{-1,2},{1,-2},{-1,-2},
@@ -42,6 +49,7 @@ bool inrange(pii x)
     return (x.X>=0) && (x.Y>=0) && (x.X<N) && (x.Y<N);
 }
 
+//overload output method for specific types
 std::ostream& operator<<(std::ostream& os, pii& p) //tested
 {
     os << "("<<  p.first << ", " <<  p.second << ")";
@@ -65,6 +73,7 @@ std::ostream& operator<<(std::ostream& os, Board<T>& b) //tested
     return os;
 }
 
+//below is Solver, parent of different solvers
 class Solver
 {
 private:

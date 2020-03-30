@@ -1,66 +1,59 @@
-#ifndef A_star_H
-#define A_star_H
+#ifndef Astar_H
+#define Astar_H
 
 #include "custom_header.hpp"
 
-class A_star : public Solver
+class Astar : public Solver
 {
+private:
+    std::function<int(const pii&, const pii&)> h;
 public:
     //string name; this will cause the name be empty string
-    A_star();
+    Astar();
     pair<vector<pii>, int> solve(pii x, pii y, double TL);
-    void init();
-    void print();
+    //int h1(pii x); //heuristic
 };
 
-A_star::A_star()
+Astar::Astar()//std::function<int(pii)> _h)
 {
-    name = "A_star";
+    auto _h = [&](const pii &s, const pii &t){
+        return manhattan_distance(s, t)/3;
+    };
+    h = _h;
+    name = "Astar";
 }
 
-pair<vector<pii>, int> A_star::solve(pii s, pii t, double TL)
+pair<vector<pii>, int> Astar::solve(pii s, pii t, double TL)
 {
+    TIMER_S
     node_expanded = 0;
     vector<pii> path;
-    priority_queue<pii> q;
-    q.push(s);
+    priority_queue<pair<int, pair<int, int>>> pq; //bigger first out 
+    //note: negate the sum of heuristic + distance now, to arvhieve smaller first out
+    //origially, nxt_h = cur_h - h(cur, t) + 1 + h(nxt, t)
+    //now, nxt_h = cur_h - 1 + h(cur, t) - h(nxt, t)
+    pq.push(mp(-h(s,t), s));
     vis[cor(s)] = s;
-    while(!q.empty())
+    while(!pq.empty())
     {
-        pii cur = q.front(); q.pop();
+        pair<int, pii> cur = pq.top(); pq.pop();
         node_expanded++;
-        if(cur == t) break;
+        if(cur.Y == t) break;
         for(auto &d : dxdy)
         {
-            pii nxt = cur + d;
-            if(!inrange(nxt) || vis[cor(nxt)] != pii(-1,-1)) continue;
+            pii nxtp = cur.Y + d;
+            if(!inrange(nxtp) || vis[cor(nxtp)] != pii(-1,-1)) continue;
             //if(nxt == t) 
-            q.push(nxt);
-            vis[cor(nxt)] = cur;
+            pair<int, pii> nxt = mp(cur.X-1+h(cur.Y, t)-h(nxtp, t), nxtp);
+            pq.push(nxt);
+            vis[cor(nxtp)] = cur.Y;
         }
     }
-    pii cur = t;
-    while(1)
-    {
-        if(vis[cor(cur)] == cur) { path.pb(cur); break;}
-        path.pb(cur);
-        cur = vis[cor(cur)];
-    }
-    reverse(path.begin(), path.end());
+    TIMER_C(_t)
+    TIMER_P(_t)
+    Solver::construct_path(path, t);
+
     return mp(path, node_expanded);
-}
-
-void A_star::init()
-{
-    vis = Board<pii>();
-    rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));
-    cout << name << " solver initialized." << endl;
-}
-
-
-void A_star::print()
-{
-    cout << "A_star_structure_test\n";
 }
 
 #endif
