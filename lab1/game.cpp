@@ -3,6 +3,7 @@
 #include "dfs_solver.hpp"
 #include "iddfs_solver.hpp"
 #include "astar_solver.hpp"
+#include "idastar_solver.hpp"
 
 signed main()
 {
@@ -14,6 +15,7 @@ signed main()
     solvers.pb(new DFS());
     solvers.pb(new IDDFS());
     solvers.pb(new Astar());
+    solvers.pb(new IDA());
     rep(i, 0, solvers.size()) cout << "id " << i << ":, algorithm :" << solvers[i]->name << endl; 
     cout << "input solver id:" << endl;
     int id; int sx, sy, tx, ty;

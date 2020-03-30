@@ -16,10 +16,9 @@ public:
 
 Astar::Astar()//std::function<int(pii)> _h)
 {
-    auto _h = [&](const pii &s, const pii &t){
+    h = [&](const pii &s, const pii &t){
         return manhattan_distance(s, t)/3;
     };
-    h = _h;
     name = "Astar";
 }
 

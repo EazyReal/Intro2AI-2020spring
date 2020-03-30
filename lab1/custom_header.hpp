@@ -3,10 +3,12 @@
 
 //headers and namespaces
 #include <bits/stdc++.h>
+//#include "matplotlibcpp.h", not available on Mac(or complicated)
 using namespace std;
 
 //hyper params
 #define N 8
+#define C_TL 10.0 //time limit
 
 //useful macros
 #define rep(i, s, t) for(int i = s, _t = (t); i < _t; i++)
@@ -81,7 +83,7 @@ public:
     string name;
     int node_expanded;
     Board<pii> vis;
-    virtual pair<vector<pii>, int> solve(pii x, pii y, double TL=10.0) = 0;
+    virtual pair<vector<pii>, int> solve(pii x, pii y, double TL=C_TL) = 0;
     void init();
     void print();
     void construct_path(vector<pii> &path, pii t);
