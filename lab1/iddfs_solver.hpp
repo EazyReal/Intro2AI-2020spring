@@ -6,15 +6,11 @@
 class IDDFS : public Solver
 {
 private:
-    Board<pii> vis;
-    int node_expanded;
 public:
     //string name; this will cause the name be empty string
     IDDFS();
     bool dfs(int d, pii s, pii p, pii t, int maxd);
-    pair<vector<pii>, int> solve(pii x, pii y);
-    void init();
-    void print();
+    pair<vector<pii>, int> solve(pii x, pii y, double TL);
 };
 
 IDDFS::IDDFS()
@@ -24,10 +20,10 @@ IDDFS::IDDFS()
 
 bool IDDFS::dfs(int d, pii s, pii p, pii t, int maxd)
 {
-    node_expanded++;
+    if(d > maxd) return false; //dont set vis v=before this!!!!, debug by assert(len(path) = maxd+1)
+    node_expanded++; //after d>maxd 441, before=> 2134, when 2, 0, 0, 0, 7 input
     bool ret = false;
     vis[cor(s)] = p;
-    if(d > maxd) return false;
     if(s == t) return true;
     //else if(d > maxd) return false; this might cause assertion failed(for the node is expanded at maxd+1)
     //different return condition cause slightly difference in node_expanded
@@ -35,52 +31,38 @@ bool IDDFS::dfs(int d, pii s, pii p, pii t, int maxd)
     {
         pii nxt = s + di;
         if(!inrange(nxt)||vis[cor(nxt)] != pii(-1,-1)) continue; //typo, continue to break
-        ret |= dfs(d+1, nxt, s, t, maxd);
+        //if(!inrange(nxt)) break;
+        if(d+1 <= maxd) ret |= dfs(d+1, nxt, s, t, maxd); //constrain here is ok, too, or use minus to zero
         if(ret) break; //this may reduce node expanded
     }
-    if(!ret) vis[cor(s)] = pii(-1,-1);
+    if(!ret) vis[cor(s)] = pii(-1,-1); //if not done, revover vis
     return ret;
 }
 
-pair<vector<pii>, int> IDDFS::solve(pii s, pii t)
+pair<vector<pii>, int> IDDFS::solve(pii s, pii t, double TL)
 {
+    TIMER(
     node_expanded = 0;
     int maxd = 0;
     while(!dfs(0, s, s, t, maxd) && maxd <= 1000)
     {
-        init();
+        Solver::init();
         ++maxd;
         debug(maxd);
-        debug(node_expanded);
-    }
-    pii cur = t;
-    vector<pii> path;
-    while(1)
-    {
-        path.pb(cur);
-        cur = vis[cor(cur)];
-        if(vis[cor(cur)] == cur)
+        TIMER_C(checker)
+        if(checker > TL)
         {
-            path.pb(cur);
+            cout << "TLE break at " << TL <<  " seconds";
             break;
         }
     }
-    reverse(path.begin(), path.end());
+    )
+    //print();
+    vector<pii> path;
+    construct_path(path, t);
+    //debug(path); debug(maxd);
     assert(path.size() == maxd+1); // s -d++- 1 - 2 - 3 - d++ t 
     return mp(path, node_expanded);
-}
-
-void IDDFS::init()
-{
-    vis = Board<pii>();
-    rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));
-    //cout << name << " solver initialized." << endl;
-}
-
-
-void IDDFS::print()
-{
-    cout << "IDDFS_structure_test\n";
 }
 
 #endif

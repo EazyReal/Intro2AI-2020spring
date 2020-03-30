@@ -6,15 +6,11 @@
 class DFS : public Solver
 {
 private:
-    Board<pii> vis;
-    int node_expanded;
 public:
     //string name; this will cause the name be empty string
     DFS();
     bool dfs(int d, pii s, pii p, pii t);
-    pair<vector<pii>, int> solve(pii x, pii y);
-    void init();
-    void print();
+    pair<vector<pii>, int> solve(pii x, pii y, double TL);
 };
 
 DFS::DFS()
@@ -39,43 +35,15 @@ bool DFS::dfs(int d, pii s, pii p, pii t)
     return ret;
 }
 
-pair<vector<pii>, int> DFS::solve(pii s, pii t)
+pair<vector<pii>, int> DFS::solve(pii s, pii t, double TL)
 {
     node_expanded = 0;
-    vector<pii> path;
     init();
+    TIMER(
     dfs(0, s, s, t);
-    pii cur = t;
-    while(1)
-    {
-        path.pb(cur);
-        //validity of path checking
-        bool flag = (cur == vis[cor(cur)]);
-        for(auto &di : dxdy) flag |= cur + di == vis[cor(cur)];
-        assert(flag);
-
-        cur = vis[cor(cur)];
-        if(vis[cor(cur)] == cur)
-        {
-            path.pb(cur);
-            break;
-        }
-    }
-    reverse(path.begin(), path.end());
+    )
+    vector<pii> path;
+    construct_path(path, t);
     return mp(path, node_expanded);
 }
-
-void DFS::init()
-{
-    vis = Board<pii>();
-    rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));
-    //cout << name << " solver initialized." << endl;
-}
-
-
-void DFS::print()
-{
-    cout << "DFS_structure_test\n";
-}
-
 #endif

@@ -5,15 +5,10 @@
 
 class BFS : public Solver
 {
-private:
-    Board<pii> vis;
-    int node_expanded;
 public:
     //string name; this will cause the name be empty string
     BFS();
-    pair<vector<pii>, int> solve(pii x, pii y);
-    void init();
-    void print();
+    pair<vector<pii>, int> solve(pii x, pii y, double TL);
 };
 
 BFS::BFS()
@@ -21,8 +16,9 @@ BFS::BFS()
     name = "BFS";
 }
 
-pair<vector<pii>, int> BFS::solve(pii s, pii t)
+pair<vector<pii>, int> BFS::solve(pii s, pii t, double TL)
 {
+    TIMER(
     node_expanded = 0;
     vector<pii> path;
     queue<pii> q;
@@ -42,28 +38,10 @@ pair<vector<pii>, int> BFS::solve(pii s, pii t)
             vis[cor(nxt)] = cur;
         }
     }
-    pii cur = t;
-    while(1)
-    {
-        if(vis[cor(cur)] == cur) { path.pb(cur); break;}
-        path.pb(cur);
-        cur = vis[cor(cur)];
-    }
-    reverse(path.begin(), path.end());
+    )
+    Solver::construct_path(path, t);
+
     return mp(path, node_expanded);
-}
-
-void BFS::init()
-{
-    vis = Board<pii>();
-    rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));
-    cout << name << " solver initialized." << endl;
-}
-
-
-void BFS::print()
-{
-    cout << "bfs_structure_test\n";
 }
 
 #endif

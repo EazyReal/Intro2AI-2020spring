@@ -31,7 +31,7 @@ signed main()
     int nodes_expanded = dat.Y;
     cout << "tha path found by algorithm " << solvers[id]->name <<  " is of length " << path.size() << endl;
     cout << "the past is listed as follow:\n";
-    rep(i, 0, path.size()) cout <<  path[i] << endl;
+    cout << path;
     debug(nodes_expanded);
 
     return 0;
