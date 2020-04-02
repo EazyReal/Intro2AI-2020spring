@@ -10,7 +10,7 @@
 
 #define N_TC 100
 
-void test_solver(Solver* solver, int N=N, int n=N_TC)
+void test_solver(Solver* solver, int test_N, int n=N_TC)
 {
     ofstream fs;
     RTCG gen;
@@ -20,6 +20,7 @@ void test_solver(Solver* solver, int N=N, int n=N_TC)
     int total_node_expanded = 0;
     double total_time = 0.0;
     vector<pair<pii, pii>> tcs = gem.rtcs(n);
+    vector<pair<double, double>> results(n);
     rep(i, 0, n)
     {
         auto ret = solver->solve(tcs[i].X, tcs[i].Y);
