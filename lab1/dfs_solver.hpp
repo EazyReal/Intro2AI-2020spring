@@ -22,6 +22,8 @@ bool DFS::dfs(int d, pii s, pii p, pii t)
 {
     bool ret = false;
     node_expanded++;
+    cur_node_expanded++;
+    max_node_expanded = max(max_node_expanded, cur_node_expanded);
     vis[cor(s)] = p;
     if(s == t) return true;
     for(auto &di : dxdy)
@@ -31,6 +33,7 @@ bool DFS::dfs(int d, pii s, pii p, pii t)
         ret |= dfs(d+1, nxt, s, t);
         if(ret) break;
     }
+    cur_node_expanded--;
     if(!ret) vis[cor(s)] = pii(-1,-1);
     return ret;
 }
@@ -38,6 +41,8 @@ bool DFS::dfs(int d, pii s, pii p, pii t)
 pair<vector<pii>, int> DFS::solve(pii s, pii t, double TL)
 {
     node_expanded = 0;
+    max_node_expanded = 0;
+    cur_node_expanded = 0;
     init();
     TIMER(
     dfs(0, s, s, t);

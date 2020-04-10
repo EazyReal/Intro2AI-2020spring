@@ -81,8 +81,12 @@ class Solver
 private:
 public:
     string name;
+    int max_node_expanded;
+    int cur_node_expanded;
     int node_expanded;
+    int node;
     Board<pii> vis;
+    //TL is time limit 
     virtual pair<vector<pii>, int> solve(pii x, pii y, double TL=C_TL) = 0;
     void init();
     void print();

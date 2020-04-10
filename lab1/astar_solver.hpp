@@ -26,17 +26,21 @@ pair<vector<pii>, int> Astar::solve(pii s, pii t, double TL)
 {
     TIMER_S
     node_expanded = 0;
+    cur_node_expanded = 0;
+    max_node_expanded = 0;
     vector<pii> path;
     priority_queue<pair<int, pair<int, int>>> pq; //bigger first out 
     //note: negate the sum of heuristic + distance now, to arvhieve smaller first out
     //origially, nxt_h = cur_h - h(cur, t) + 1 + h(nxt, t)
     //now, nxt_h = cur_h - 1 + h(cur, t) - h(nxt, t)
     pq.push(mp(-h(s,t), s));
+    node_expanded++;
+    cur_node_expanded++;
     vis[cor(s)] = s;
     while(!pq.empty())
     {
         pair<int, pii> cur = pq.top(); pq.pop();
-        node_expanded++;
+        cur_node_expanded--;
         if(cur.Y == t) break;
         for(auto &d : dxdy)
         {
@@ -45,6 +49,9 @@ pair<vector<pii>, int> Astar::solve(pii s, pii t, double TL)
             //if(nxt == t) 
             pair<int, pii> nxt = mp(cur.X-1+h(cur.Y, t)-h(nxtp, t), nxtp);
             pq.push(nxt);
+            node_expanded++;
+            cur_node_expanded++;
+            max_node_expanded = max(max_node_expanded, cur_node_expanded);
             vis[cor(nxtp)] = cur.Y;
         }
     }

@@ -27,6 +27,8 @@ int IDA::dfs(int d, pii s, pii p, pii t, int maxd)
 {
     if(d > maxd) return d;//dont set vis v=before this!!!!, debug by assert(len(path) = maxd+1) 
     node_expanded++; //after d>maxd 441, before=> 2134, when 2, 0, 0, 0, 7 input
+    cur_node_expanded++;
+    max_node_expanded = max(max_node_expanded, cur_node_expanded);
     int ret = INT_MAX;
     vis[cor(s)] = p;
     if(s == t) return -1;
@@ -41,6 +43,7 @@ int IDA::dfs(int d, pii s, pii p, pii t, int maxd)
         ret = min(ret, dfs(nxtd, nxt, s, t, maxd)); //constrain here is ok, too, or use minus to zero
         if(ret == -1) break; //this may reduce node expanded
     }
+    cur_node_expanded--;
     if(ret != -1) vis[cor(s)] = pii(-1,-1); //if not done, revover vis
     return ret;
 }
@@ -49,6 +52,8 @@ pair<vector<pii>, int> IDA::solve(pii s, pii t, double TL)
 {
     TIMER(
     node_expanded = 0;
+    cur_node_expanded = 0;
+    max_node_expanded = 0;
     int maxd = h(s, t);
     while(1)
     {
