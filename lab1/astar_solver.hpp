@@ -56,7 +56,7 @@ pair<vector<pii>, int> Astar::solve(pii s, pii t, double TL)
         }
     }
     TIMER_C(_t)
-    TIMER_P(_t)
+    //TIMER_P(_t)
     Solver::construct_path(path, t);
 
     return mp(path, node_expanded);

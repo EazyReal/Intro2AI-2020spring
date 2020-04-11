@@ -50,7 +50,7 @@ int IDA::dfs(int d, pii s, pii p, pii t, int maxd)
 
 pair<vector<pii>, int> IDA::solve(pii s, pii t, double TL)
 {
-    TIMER(
+    //TIMER(
     node_expanded = 0;
     cur_node_expanded = 0;
     max_node_expanded = 0;
@@ -61,16 +61,16 @@ pair<vector<pii>, int> IDA::solve(pii s, pii t, double TL)
         int res = dfs(h(s,t), s, s, t, maxd);
         if(res == -1) break;
         else if(res == INT_MAX) {cout << "no solution" << endl; break;}
-        maxd = res;
-        debug(maxd);
-        TIMER_C(checker)
-        if(checker > TL)
-        {
-            cout << "TLE break at " << TL <<  " seconds";
-            break;
-        }
+        //maxd = res;
+        //debug(maxd);
+        //TIMER_C(checker)
+        //if(checker > TL)
+        //{
+        //    cout << "TLE break at " << TL <<  " seconds";
+        //break;
+        //}
     }
-    )
+    //)
     //print();
     vector<pii> path;
     construct_path(path, t);

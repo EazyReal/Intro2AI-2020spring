@@ -18,7 +18,7 @@ DFS::DFS()
     name = "DFS";
 }
 
-bool DFS::dfs(int d, pii s, pii p, pii t)
+bool DFS::dfs(int d, pii s, pii p, pii t) //s = current, p = from, d = current depth, t =  
 {
     bool ret = false;
     node_expanded++;
@@ -44,9 +44,7 @@ pair<vector<pii>, int> DFS::solve(pii s, pii t, double TL)
     max_node_expanded = 0;
     cur_node_expanded = 0;
     init();
-    TIMER(
     dfs(0, s, s, t);
-    )
     vector<pii> path;
     construct_path(path, t);
     return mp(path, node_expanded);

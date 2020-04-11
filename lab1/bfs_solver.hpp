@@ -18,7 +18,6 @@ BFS::BFS()
 
 pair<vector<pii>, int> BFS::solve(pii s, pii t, double TL)
 {
-    TIMER(
     node_expanded = 0;
     cur_node_expanded = 0;
     max_node_expanded = 0;
@@ -45,7 +44,6 @@ pair<vector<pii>, int> BFS::solve(pii s, pii t, double TL)
             vis[cor(nxt)] = cur;
         }
     }
-    )
     //print();
     Solver::construct_path(path, t);
 

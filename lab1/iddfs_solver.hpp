@@ -38,13 +38,13 @@ bool IDDFS::dfs(int d, pii s, pii p, pii t, int maxd)
         if(ret) break; //this may reduce node expanded
     }
     cur_node_expanded--;
-    if(!ret) vis[cor(s)] = pii(-1,-1); //if not done, revover vis
+    //if(!ret) vis[cor(s)] = pii(-1,-1); //if not done, revover vis
     return ret;
 }
 
 pair<vector<pii>, int> IDDFS::solve(pii s, pii t, double TL)
 {
-    TIMER(
+    //TIMER(
     node_expanded = 0;
     max_node_expanded = 0;
     cur_node_expanded = 0;
@@ -53,20 +53,20 @@ pair<vector<pii>, int> IDDFS::solve(pii s, pii t, double TL)
     {
         Solver::init();
         ++maxd;
-        debug(maxd);
-        TIMER_C(checker)
-        if(checker > TL)
-        {
-            cout << "TLE break at " << TL <<  " seconds";
-            break;
-        }
+        //debug(maxd);
+        //TIMER_C(checker)
+        //if(checker > TL)
+        //{
+        //    cout << "TLE break at " << TL <<  " seconds";
+        //    break;
+        //}
     }
-    )
+    //)
     //print();
     vector<pii> path;
     construct_path(path, t);
     //debug(path); debug(maxd);
-    assert(path.size() == maxd+1); // s -d++- 1 - 2 - 3 - d++ t 
+    //assert(path.size() == maxd+1); // s -d++- 1 - 2 - 3 - d++ t 
     return mp(path, node_expanded);
 }
 
