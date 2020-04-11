@@ -4,6 +4,8 @@
 #include "iddfs_solver.hpp"
 #include "astar_solver.hpp"
 #include "idastar_solver.hpp"
+#include "dfsv2_solver.hpp"
+#include "iddfs_v2_solver.hpp"
 
 signed main()
 {
@@ -17,6 +19,8 @@ signed main()
     solvers.pb(new IDDFS());
     solvers.pb(new Astar());
     solvers.pb(new IDA());
+    solvers.pb(new DFS2());
+    solvers.pb(new IDDFS2());
     N = 10; //effective test by dfs
     cerr << "input board size: ";
     cin >>  N;

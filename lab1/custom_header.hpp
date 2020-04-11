@@ -106,7 +106,7 @@ void Solver::construct_path(vector<pii> &path, pii t)
     return;
 }
 
-void Solver::init()
+void Solver::init() //init visboard
 {
     vis = vector<vector<pii>>(N, vector<pii>(N)); //elastic board
     rep(i, 0, N) fill(vis[i].begin(), vis[i].end(), pii(-1, -1));

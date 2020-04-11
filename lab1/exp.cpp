@@ -6,6 +6,8 @@
 #include "iddfs_solver.hpp"
 #include "astar_solver.hpp"
 #include "idastar_solver.hpp"
+#include "dfsv2_solver.hpp"
+#include "iddfs_v2_solver_hpp"
 #include <fstream>
 
 //0-indexed
@@ -70,7 +72,7 @@ signed main()
     vector<Solver*> solvers;
     solvers.pb(new BFS());
     solvers.pb(new DFS());
-    solvers.pb(new IDDFS());
+    solvers.pb(new IDDFS2());
     solvers.pb(new Astar());
     solvers.pb(new IDA());
     //rep(i, 0, solvers.size()) cout << "id " << i << ":, algorithm :" << solvers[i]->name << endl; 
