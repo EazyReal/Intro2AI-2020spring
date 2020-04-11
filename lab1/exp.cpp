@@ -7,7 +7,8 @@
 #include "astar_solver.hpp"
 #include "idastar_solver.hpp"
 #include "dfsv2_solver.hpp"
-#include "iddfs_v2_solver_hpp"
+#include "iddfs_v2_solver.hpp"
+#include "idastar_v2_solver.hpp"
 #include <fstream>
 
 //0-indexed
@@ -71,10 +72,10 @@ signed main()
     cin >> maxN >> deltaN >> testN; //passing hyper param from stdin
     vector<Solver*> solvers;
     solvers.pb(new BFS());
-    solvers.pb(new DFS());
+    solvers.pb(new DFS2());
     solvers.pb(new IDDFS2());
     solvers.pb(new Astar());
-    solvers.pb(new IDA());
+    solvers.pb(new IDA2());
     //rep(i, 0, solvers.size()) cout << "id " << i << ":, algorithm :" << solvers[i]->name << endl; 
     //cout << "input solver id:" << endl;
     int n_solver = solvers.size();

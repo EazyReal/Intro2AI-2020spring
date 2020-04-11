@@ -61,7 +61,7 @@ pair<vector<pii>, int> IDA::solve(pii s, pii t, double TL)
         int res = dfs(h(s,t), s, s, t, maxd);
         if(res == -1) break;
         else if(res == INT_MAX) {cout << "no solution" << endl; break;}
-        //maxd = res;
+        maxd = res;
         //debug(maxd);
         //TIMER_C(checker)
         //if(checker > TL)

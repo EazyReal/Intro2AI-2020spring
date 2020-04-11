@@ -1,4 +1,5 @@
 # usage
+#notice algoN should change
 
 algoN=4
 maxN=$1

@@ -1,11 +1,14 @@
 #ifndef DFS2_H
 #define DFS2_H
 
+//dfs with relaxation check
+
 #include "custom_header.hpp"
 
 class DFS2 : public Solver
 {
 private:
+    int INF;
 public:
     //string name; this will cause the name be empty string
     DFS2();
@@ -28,7 +31,9 @@ bool DFS2::dfs2(int d, pii s, pii t) //s = current, p = from, d = current depth,
     {
         pii nxt = s + di;
         //nxt is not in range or no relexation, init d = INF, so if no visit will explore
-        if(!inrange(nxt)||dep[cor(nxt)] <= d+1) continue;
+        //dep != INF => no relaxation version(visit once)
+        //dep <= d+1 => relaxation version
+        if(!inrange(nxt)||dep[cor(nxt)]!=INF) continue;
         path.pb(nxt);
         node_expanded++;
         cur_node_expanded++;
@@ -48,7 +53,7 @@ pair<vector<pii>, int> DFS2::solve(pii s, pii t, double TL)
     max_node_expanded = 0;
     cur_node_expanded = 0;
     path.clear();
-    int INF = N*N + N;
+    INF = N*N + N;
     dep = vector<vector<int>>(N, vector<int>(N, INF));
     //init();
     //start dfs
