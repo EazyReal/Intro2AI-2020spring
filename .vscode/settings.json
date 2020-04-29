@@ -6,7 +6,14 @@
         "array": "cpp",
         "ostream": "cpp",
         "chrono": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "algorithm": "cpp",
+        "limits": "cpp",
+        "random": "cpp",
+        "valarray": "cpp",
+        "fstream": "cpp",
+        "vector": "cpp",
+        "functional": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
