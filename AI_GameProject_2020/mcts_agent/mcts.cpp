@@ -124,6 +124,7 @@ int MCTS::best_action(board& init_b, int simu_per_step)
         res = roll_out();
         //backpropogation
         backpropogation(res);
+        if((clock()-start_t)/CLOCKS_PER_SEC > 0.8) break;
     }
     //return result, forget to judge NULL at first
     //best policy is of highest rave_winrate(in opening) and highest winrate(in ending)
