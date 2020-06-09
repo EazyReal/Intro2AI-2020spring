@@ -50,18 +50,20 @@ int main() {
 	int id_package = 1; //todo
 	std::vector<std::vector<int>> b;
 	std::vector<int> step;
+	srand(time(NULL));
 
 #define TESTBOARD
 #ifdef TESTBOARD
 	board bo;
-	while(1)
+	bo.simulate(BLACK);
+	/*while(1)
 	{
 		cout << "enter x y (0-indexed) and color to move: \n";
 		int x, y, c;
 		cin >> x >> y >> c;
 		bo.add(ID(x,y), c);
 		bo.print();
-	}
+	}*/
 #endif
 	
 	bool is_black;

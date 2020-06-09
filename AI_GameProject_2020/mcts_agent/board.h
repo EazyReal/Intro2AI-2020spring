@@ -14,6 +14,10 @@ using namespace std;
 #define EMPTY -1
 #define CORNER -2
 
+#define NOTEND -1
+//position save for pass
+#define PASS -1
+
 // notations
 #define VI vector<int>
 #define VVI vector<vector<int>>
@@ -40,9 +44,10 @@ public:
     bool just_play_color(); //be sure to get the right color
     bool check(int pos, int color); //check validity of action
     bool no_move();
+    VI all_moves();
     void add(int pos, int color);
     int simulate(int color);
-    void update(); //update information
+    int status(); //update information
     void print();
 
     //constructors

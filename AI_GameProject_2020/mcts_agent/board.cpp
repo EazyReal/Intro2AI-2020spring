@@ -17,12 +17,12 @@ std::ostream& operator << (std::ostream& os, const std::vector<T>& v)
 
 inline bool inrange(int x, int y)
 {
-    return x >= 0 && x < BOARDSZ && y > 0 && y < BOARDSZ;
+    return x >= 0 && x < BOARDSZ && y >= 0 && y < BOARDSZ;
 }
 
 inline bool inner(int x, int y)
 {
-    return x > 0 && x < 7 && y > 0 && y < 7;
+    return x > 0 && x < BOARDSZ-1 && y > 0 && y < BOARDSZ-1;
 }
 
 //convert TA API to my board info
@@ -36,6 +36,7 @@ board::board(VVI b, bool lastc) : b(b), lastc(lastc)
 board::board()
 {
     b = VVI(BOARDSZ, VI(BOARDSZ, -1));
+    b[0][0] = b[0][BOARDSZ-1] = b[BOARDSZ-1][BOARDSZ-1] = b[BOARDSZ-1][0] = -2; //bug
     lastc = WHITE;
     //cout << b;
 };
@@ -50,7 +51,7 @@ bool board::just_play_color()
 bool board::check(int pos, int color)
 {
     DECODE(pos,x,y);
-    if(b[x][y] != EMPTY) return 0; //only empty can do
+    if(b[x][y] != EMPTY) return 0; //only empty can do, corner is exluded in this step
     // middle 6*6 
     if(inner(x,y)) return 1;
     // 4 side
@@ -73,24 +74,41 @@ bool board::check(int pos, int color)
             if(flag1 && flag2) return 1;
         }
     }
-    return 1;
+    return 0;
 }
 
+/*
 void board::update()
 {
     return;
+}*/
+
+vector<int> board::all_moves()
+{
+    VI ret;
+    bool toplay = !lastc;
+    trav(i,j)if(check(ID(i,j), toplay))
+    {
+        ret.push_back(ID(i,j));
+    }
+    return ret;
 }
 
 bool board::no_move()
 {
-    bool ok = 0;
-    bool toplay = !lastc;
-    trav(i,j) ok |= check(ID(i,j), toplay);
-    return !ok;
+    return all_moves().size() == 0;
 }
 
+// note that pass is with pos PASS(-1)
 void board::add(int pos, int color)
 {
+    if(pos == PASS)
+    {
+        assert(!lastc == bool(color));
+        lastc = !lastc;
+        return;
+    }
+
     assert(check(pos,color));
     DECODE(pos,x,y);
     b[x][y] = color;
@@ -110,8 +128,6 @@ void board::add(int pos, int color)
             if(b[nx][ny] == color) {flag2 = 1; break;}
             if(b[nx][ny] < 0) break;
         }
-        debug(flag1);
-        debug(flag2);
         if(flag1 && flag2)
         {
             nx = x, ny = y;
@@ -120,16 +136,52 @@ void board::add(int pos, int color)
                 nx += dx;
                 ny += dy;
                 if(b[nx][ny] == !color) b[nx][ny] = color; //flip
-                if(b[nx][ny] < 0) break;
+                if(b[nx][ny] < 0 || b[nx][ny] == color) break;
             }
         }
     }
     return;
 }
 
+
+int board::status()
+{
+    // calc territory
+    int w, bl, e;
+    trav(i, j)
+    {
+        if(b[i][j] == WHITE) w++;
+        if(b[i][j] == BLACK) bl++;
+        if(b[i][j] == EMPTY) e++; return NOTEND;
+    }
+    return (w > bl ? WHITE : BLACK); //NO IMPLEMENT TIE
+}
+
+
 int board::simulate(int c)
 {
-    return 1;
+    int pass_cnt = 0;
+    //int toplay = c;
+    //toplay = !just_play_color();
+    assert(c == !lastc);
+    while(1)
+    {
+        print();
+        VI moves = all_moves();
+        cout << moves  << endl;
+        int n = moves.size();
+        if(n == 0 )
+        {
+            pass_cnt++;
+            add(-1, !lastc);
+            if(pass_cnt == 2) return status(); 
+            else continue;
+        }
+        add(moves[rand()%n], !lastc);
+        pass_cnt = 0;
+    }
+    assert(0);
+    return PASS;
 }
 
 void board::print()
@@ -139,7 +191,7 @@ void board::print()
     cout << endl;
     trav(i, j)
     {
-        if(b[i][j] == -1) cout << '.';
+        if(b[i][j] < 0) cout << '.';
         if(b[i][j] == 0) cout << 'o';
         if(b[i][j] == 1) cout << 'x';
         if(j==BOARDSZ-1 ) cout << ' ' << i;
