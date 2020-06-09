@@ -20,16 +20,14 @@ bool GetBoard(int idpackage, VVI&b, bool &is_black)
 {
 	is_black = 1;
 	b = VVI(BOARDSZ, vector<int>(BOARDSZ, 0));
-	cout << "interactive input for testing or empty board? (I/E):";
-	char op;
-	cin >> op;
-	if(op == 'I')
-	{
-		for(int i = 0; i < BOARDSZ; ++i)for(int j = 0; j < BOARDSZ; ++j)
-		cin >> b[i][j];
-	}
-	board bo(b, is_black);
-	return bo.no_move();
+	//cout << "interactive input for testing or empty board? (I/E):";
+	// char op;
+	// cin >> op;
+	//if(op == 'I')
+	//{
+	trav(i,j) cin >> b[i][j];
+	//}
+	return 0;
 }
 
 void SendStep(int idpackage, vector<int> step)
@@ -42,6 +40,7 @@ void SendStep(int idpackage, vector<int> step)
 std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
 	board b(brd, is_black); // black to play => is_black = 1 => lastc = 1
+	//b.print();
 	int pos = agent.best_action(b);
 	return vector<int>({pos/BOARDSZ, pos%BOARDSZ});
 }
@@ -64,14 +63,25 @@ int main() {
 		bo.add(ID(x,y), c);
 		bo.print();
 	}*/
+	//VVI b;
+
 #endif
 	
 	bool is_black;
 	while (true) {
 		if (GetBoard(id_package, b, is_black))
 			break;
-
 		step = GetStep(b, is_black);
 		SendStep(id_package, step);
 	}
 }
+/*
+-1 0 0 0 0 0 0 -1
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+-1 0 0 0 0 0 0 -1
+*/

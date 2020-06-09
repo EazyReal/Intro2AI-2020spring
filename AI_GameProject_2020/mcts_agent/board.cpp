@@ -27,9 +27,10 @@ inline bool inner(int x, int y)
 
 //convert TA API to my board info
 // BLACK 0, WHITE 1, EMPTY -1, CORNER(NOGO) -2
-board::board(VVI b, bool lastc) : b(b), lastc(lastc)
+board::board(VVI b, bool lastc) : lastc(lastc)
 {
-    trav(i,j) b[i][j]--;
+    this->b = b;
+    trav(i,j) this->b[i][j]--;
 };
 
 //init with empty board and BLACK to go
@@ -51,7 +52,8 @@ bool board::just_play_color()
 bool board::check(int pos, int color)
 {
     DECODE(pos,x,y);
-    if(b[x][y] != EMPTY) return 0; //only empty can do, corner is exluded in this step
+    assert(color == !lastc);
+    if(b[x][y] != EMPTY) { return 0;} //only empty can do, corner is exluded in this step
     // middle 6*6 
     if(inner(x,y)) return 1;
     // 4 side
@@ -152,7 +154,7 @@ int board::status()
     {
         if(b[i][j] == WHITE) w++;
         if(b[i][j] == BLACK) bl++;
-        if(b[i][j] == EMPTY) e++; return NOTEND;
+        //if(b[i][j] == EMPTY) e++; return NOTEND; can have empty when end
     }
     return (w > bl ? WHITE : BLACK); //NO IMPLEMENT TIE
 }
@@ -168,7 +170,7 @@ int board::simulate(int c)
     {
         //print();
         VI moves = all_moves();
-        cout << moves  << endl;
+        //cout << moves  << endl;
         int n = moves.size();
         if(n == 0 )
         {

@@ -6,7 +6,7 @@
 #define USEROUNDS 
 
 #define DEFAUT_TIME_PER_STEP (time_t(0.5*CLOCKS_PER_SEC))
-#define DEFAUT_SIMS 50000
+#define DEFAUT_SIMS 5000
 #define BLOCKSIZE 50
 
 #define RESIGN 0.2

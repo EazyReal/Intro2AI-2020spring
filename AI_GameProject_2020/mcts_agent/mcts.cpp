@@ -1,6 +1,6 @@
 #include "mcts.h"
 
-//#define DEBUG
+#define DEBUG
 //#define SHOW
 
 /*
@@ -108,6 +108,7 @@ int MCTS::best_action(board& init_b, int simu_per_step)
         bool res, nc;
         if (selected_root->cnt == BASENUM+1) { 
             int nc = selected_root->expand(simu_board);
+            //debug(nc);
             //if there are children, one step look ahead
             //just expand => ravevalue as heuristic(can use other heuristic here?)
             if (nc != 0) {
@@ -130,7 +131,10 @@ int MCTS::best_action(board& init_b, int simu_per_step)
     Action maxA = (root->mvc == nullptr) ? -1 : root->mvc->pos;
     //resign to speed up game process care /0
     if (maxA != -1 && root->mvc->cnt != 0.0 && root->mvc->num / root->mvc->cnt < RESIGN)
+    {
+        debug("resign");
         maxA = -1;
+    }
 #ifdef SHOW
     cerr << endl;
     cur_t = clock();
