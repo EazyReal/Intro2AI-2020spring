@@ -147,7 +147,7 @@ void board::add(int pos, int color)
 int board::status()
 {
     // calc territory
-    int w, bl, e;
+    int w = 0, bl = 0, e = 0;
     trav(i, j)
     {
         if(b[i][j] == WHITE) w++;
@@ -166,7 +166,7 @@ int board::simulate(int c)
     assert(c == !lastc);
     while(1)
     {
-        print();
+        //print();
         VI moves = all_moves();
         cout << moves  << endl;
         int n = moves.size();

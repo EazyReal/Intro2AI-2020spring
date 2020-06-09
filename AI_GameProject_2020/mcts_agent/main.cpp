@@ -54,8 +54,8 @@ int main() {
 
 #define TESTBOARD
 #ifdef TESTBOARD
-	board bo;
-	bo.simulate(BLACK);
+	//board bo;
+	//bo.simulate(BLACK);
 	/*while(1)
 	{
 		cout << "enter x y (0-indexed) and color to move: \n";
