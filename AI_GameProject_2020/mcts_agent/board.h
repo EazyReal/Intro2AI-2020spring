@@ -8,11 +8,11 @@ using namespace std;
 // hyper param about board
 #define BOARDSZ 8
 #define BOARDVL 64
+
 #define BLACK 0
 #define WHITE 1
-
-//#define pos.x (pos%BOARDSZ)
-//#define pos.y (pos%BOARDSZ)
+#define EMPTY -1
+#define CORNER -2
 
 // notations
 #define VI vector<int>
@@ -21,7 +21,14 @@ using namespace std;
 
 // syntax sugar
 #define rep(i, s, t) for(int i = s; i < t; ++i)
+#define trav(i,j) rep(i,0,BOARDSZ)rep(j,0,BOARDSZ)
+#define dxy(dx,dy) rep(dx,-1,2)rep(dy,-1,2)if(dx != 0 || dy != 0)
 #define DECODE(pos,x,y) int x = pos/BOARDSZ; int y = pos%BOARDSZ
+#define ID(x,y) (x*BOARDSZ+y)
+#define XY(pos) pos/BOARDSZ, pos%BOARDSZ
+#define debug(x) cerr << #x << ": "  << x << endl
+
+//const vector<pair<int,int>> dxdy8 = {{-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1,0}, {1,1}};
 
 class board
 {
@@ -36,6 +43,7 @@ public:
     void add(int pos, int color);
     int simulate(int color);
     void update(); //update information
+    void print();
 
     //constructors
     board(VVI b, bool lastc); 

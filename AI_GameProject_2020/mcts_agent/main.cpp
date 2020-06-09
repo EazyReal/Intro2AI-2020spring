@@ -42,21 +42,34 @@ void SendStep(int idpackage, vector<int> step)
 std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
 	board b(brd, is_black); // black to play => is_black = 1 => lastc = 1
-	int pos = agent.best_action(b, is_black);
+	int pos = agent.best_action(b);
 	return vector<int>({pos/BOARDSZ, pos%BOARDSZ});
 }
 
 int main() {
 	int id_package = 1; //todo
-	std::vector<std::vector<int>> board;
+	std::vector<std::vector<int>> b;
 	std::vector<int> step;
+
+#define TESTBOARD
+#ifdef TESTBOARD
+	board bo;
+	while(1)
+	{
+		cout << "enter x y (0-indexed) and color to move: \n";
+		int x, y, c;
+		cin >> x >> y >> c;
+		bo.add(ID(x,y), c);
+		bo.print();
+	}
+#endif
 	
 	bool is_black;
 	while (true) {
-		if (GetBoard(id_package, board, is_black))
+		if (GetBoard(id_package, b, is_black))
 			break;
 
-		step = GetStep(board, is_black);
+		step = GetStep(b, is_black);
 		SendStep(id_package, step);
 	}
 }
