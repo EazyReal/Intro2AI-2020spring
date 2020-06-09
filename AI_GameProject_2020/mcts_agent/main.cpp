@@ -1,7 +1,9 @@
 
-#include "STcpClient.h"
-#include <stdlib.h>
-#include <iostream>
+//dependency
+//#include "STcpClient.h"
+//#include <stdlib.h>
+//#include <iostream>
+#include "mcts.h"
 
 /*
     輪到此程式移動棋子
@@ -13,20 +15,29 @@
     Step : vector, Step = {r, c}
             r, c 表示要下棋子的座標位置 (row, column) (zero-base)
 */
-std::vector<int> GetStep(std::vector<std::vector<int>>& board, bool is_black) {
-	/*
-	Example:
-	std::vector<int> step;
-	step.resize(2);
+bool GetBoard(int idpackage, VVI&b, bool &is_black)
+{
+	b = VVI(BOARDSZ, vector<int>(BOARDSZ, 0));
+	is_black = 1;
+	return 1;
+}
 
-	step[0] = rand() % (7 + 1 - 0) + 0;
-	step[1] = rand() % (7 + 1 - 0) + 0;
-	return step;
-	*/
+void SendStep(int idpackage, vector<int> step)
+{
+	cout << step[0] << " " << step[1] << endl;
+	return;
+}
+
+
+std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
+	MCTS agent;
+	board b(brd);
+	int pos = agent.best_action(b, is_black);
+	return vector<int>({pos/BOARDSZ, pos%BOARDSZ});
 }
 
 int main() {
-	int id_package;
+	int id_package = 1; //todo
 	std::vector<std::vector<int>> board;
 	std::vector<int> step;
 	

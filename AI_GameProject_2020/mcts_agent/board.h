@@ -19,10 +19,14 @@ class board
 public:
     VVI b;
     bool just_play_color();
-    bool check(); //check validity of action
+    bool check(int pos, int color); //check validity of action
+    void add(int pos, int color);
+    int simulate(int color);
+    //double get_v();s
+    board(VVI b);
+    board();
+
 private:
-}
+};
 
-
-
-#endif BOARDH
+#endif //BOARDH

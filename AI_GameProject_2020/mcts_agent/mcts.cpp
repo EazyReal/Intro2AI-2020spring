@@ -3,7 +3,6 @@
 //#define DEBUG
 //#define SHOW
 
-
 /*
 change to make for orthello
 
@@ -14,8 +13,6 @@ board class
     check(pos, color)
     getv() getsimulation
     add(pos, color)
-
-
 */
 
 void MCTS::init_with_board(board& b)
@@ -38,8 +35,6 @@ void MCTS::reset(board& b)
     rave_path[0].clear();
     rave_path[1].clear();
 #endif
-    //simu_board.bpsize = 0;
-    //simu_board.wpsize = 0;
 }
 
 Node* MCTS::select()
@@ -61,17 +56,15 @@ Node* MCTS::select()
 bool MCTS::roll_out() //the one in the board
 {
     bool c = !simu_board.just_play_color(); //c = cur player to move
-    //getv update info for rollout by pointer and reference
-    simu_board.getv(bpos, wpos, bothpos, bpos_sz, wpos_sz, bothpos_sz);
-    //simulate the rest of board, record is in b
-    //res == 1 => black(0)player win
-    int res = simu_board.simulate(c, bpos, wpos, bothpos, bpos_sz, wpos_sz, bothpos_sz);
+    int res = simu_board.simulate(c);
+#ifdef USERAVEQ
     //update the simu actions to my rave_path vec
     //tree sim part in board b/wpath
     for (int i = 0; i < simu_board.bpsize; i++)
         rave_path[0].push_back(simu_board.bpath[i]);
     for (int i = 0; i < simu_board.wpsize; i++)
         rave_path[1].push_back(simu_board.wpath[i]);
+#endif
     return res; //modified so that result is winner
 }
 
@@ -85,6 +78,7 @@ void MCTS::backpropogation(bool res)
         //if there is action A in the subtree from the afterstate S(color, pos) now
         //then Q(S(now),A) should be updated
         bool c = !path[t]->color; //the cur color to play(= children's color)
+#ifdef USERAVEQ
         for (int tp = 0; tp < rave_path[c].size(); tp++)
         //tp=t/2=>subtree, tp=0=>all, should not influence the result because actionsi staken
         //2020/1/16 night, reading paper, get that this should influence
@@ -93,6 +87,7 @@ void MCTS::backpropogation(bool res)
             if (k != -1)
                 path[t]->cptr[k]->rave_update(res);
         }
+#endif
     }
 }
 
@@ -118,7 +113,9 @@ int MCTS::best_action(board& init_b, bool color, int simu_per_step)
             if (nc != 0) {
                 selected_root = selected_root->best_child();
                 simu_board.add(selected_root->pos, selected_root->color);
+#ifdef USERAVEQ
                 rave_path[selected_root->color].push_back(selected_root->pos);
+#endif
                 path.push_back(selected_root);
             }
         }

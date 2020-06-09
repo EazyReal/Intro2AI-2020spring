@@ -18,6 +18,7 @@ using namespace std;
 class MCTS
 {
 public:
+
   Action best_action(board &init_b, bool color, int simu_per_step = DEFAUT_SIMS);
   double calc_winrate();
   void init_with_board(board &b); //init MCTS with board

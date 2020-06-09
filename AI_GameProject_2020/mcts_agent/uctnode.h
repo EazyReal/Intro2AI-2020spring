@@ -2,13 +2,13 @@
 #define UCTH
 
 // dependency
-#include "board.hpp"
+#include "board.h"
 
 //if define this, RAVE value will turn on
 //#define USERAVEQ
 
-#ifdef USERAVEQ
 #define BASENUM 0
+#ifdef USERAVEQ
 #define RBASENUM 10
 #endif
 
