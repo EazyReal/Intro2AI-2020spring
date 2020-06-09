@@ -9,7 +9,7 @@
 #define DEFAUT_SIMS 5000
 #define BLOCKSIZE 50
 
-#define RESIGN 0.2
+//#define RESIGN 0.2  modified orthello by rule cannot resign
 
 typedef int Action;//for clarity
 

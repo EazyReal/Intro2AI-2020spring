@@ -133,11 +133,13 @@ int MCTS::best_action(board& init_b, int simu_per_step)
     vector<double> pi = root->getPi();
     Action maxA = (root->mvc == nullptr) ? PASS : root->mvc->pos;
     //resign to speed up game process care /0
+#ifdef RESIGN
     if (maxA != -1 && root->mvc->cnt != 0.0 && root->mvc->num / root->mvc->cnt < RESIGN)
     {
         debug("resign");
         maxA = -1;
     }
+#endif
 #ifdef SHOW
     cerr << endl;
     cur_t = clock();
