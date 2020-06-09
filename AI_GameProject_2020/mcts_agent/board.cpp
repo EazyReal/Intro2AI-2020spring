@@ -136,7 +136,7 @@ void board::add(int pos, int color)
                 nx += dx;
                 ny += dy;
                 if(b[nx][ny] == !color) b[nx][ny] = color; //flip
-                if(b[nx][ny] < 0 || b[nx][ny] == color) break;
+                else if(b[nx][ny] < 0 || b[nx][ny] == color) break; //bug, else
             }
         }
     }
