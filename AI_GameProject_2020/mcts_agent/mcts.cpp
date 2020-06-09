@@ -128,7 +128,7 @@ int MCTS::best_action(board& init_b, int simu_per_step)
     //return result, forget to judge NULL at first
     //best policy is of highest rave_winrate(in opening) and highest winrate(in ending)
     vector<double> pi = root->getPi();
-    Action maxA = (root->mvc == nullptr) ? -1 : root->mvc->pos;
+    Action maxA = (root->mvc == nullptr) ? PASS : root->mvc->pos;
     //resign to speed up game process care /0
     if (maxA != -1 && root->mvc->cnt != 0.0 && root->mvc->num / root->mvc->cnt < RESIGN)
     {
