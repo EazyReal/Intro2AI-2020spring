@@ -7,7 +7,7 @@
 //if define this, RAVE value will turn on
 //#define USERAVEQ
 
-#define BASENUM 0
+#define BASENUM 10
 #ifdef USERAVEQ
 #define RBASENUM 10
 #endif

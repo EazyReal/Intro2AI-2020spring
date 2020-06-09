@@ -18,8 +18,8 @@ using namespace std;
 class MCTS
 {
 public:
-
-  Action best_action(board &init_b, bool color, int simu_per_step = DEFAUT_SIMS);
+  // outside linker, input board(should support just_play_color())
+  Action best_action(board &init_b, int simu_per_step = DEFAUT_SIMS);
   double calc_winrate();
   void init_with_board(board &b); //init MCTS with board
   void reset(board &b); //reset board and path before each cycle

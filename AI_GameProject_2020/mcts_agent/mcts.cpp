@@ -91,7 +91,7 @@ void MCTS::backpropogation(bool res)
     }
 }
 
-int MCTS::best_action(board& init_b, bool color, int simu_per_step)
+int MCTS::best_action(board& init_b, int simu_per_step) 
 {
     init_with_board(init_b); //create and expand root(null, basenum, p, c)
     time_t start_t, cur_t;

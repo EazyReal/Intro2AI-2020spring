@@ -48,6 +48,7 @@ Node* Node::best_child()
   if(cptr.empty()) return nullptr; //segment fault prevantion
 
   vector<Node*> maxC;
+  //cerr << cptr.size();
   double maxQ = cptr[0]->getQ();
   maxC.push_back(cptr[0]);
   const double eps = 0.0001; //to deter if the value is close enough(to try both) in double

@@ -6,6 +6,7 @@
 #include "mcts.h"
 
 /*
+API of TA's program
     輪到此程式移動棋子
     board : 棋盤狀態(vector of vector), board[i][j] = i row, j column 棋盤狀態(i, j 從 0 開始)
             0 = 空、1 = 黑、2 = 白、-1 = 四個角落
@@ -17,9 +18,18 @@
 */
 bool GetBoard(int idpackage, VVI&b, bool &is_black)
 {
-	b = VVI(BOARDSZ, vector<int>(BOARDSZ, 0));
 	is_black = 1;
-	return 1;
+	b = VVI(BOARDSZ, vector<int>(BOARDSZ, 0));
+	cout << "interactive input for testing or empty board? (I/E):";
+	char op;
+	cin >> op;
+	if(op == 'I')
+	{
+		for(int i = 0; i < BOARDSZ; ++i)for(int j = 0; j < BOARDSZ; ++j)
+		cin >> b[i][j];
+	}
+	board bo(b, is_black);
+	return bo.no_move();
 }
 
 void SendStep(int idpackage, vector<int> step)
@@ -31,7 +41,7 @@ void SendStep(int idpackage, vector<int> step)
 
 std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
-	board b(brd);
+	board b(brd, is_black); // black to play => is_black = 1 => lastc = 1
 	int pos = agent.best_action(b, is_black);
 	return vector<int>({pos/BOARDSZ, pos%BOARDSZ});
 }
