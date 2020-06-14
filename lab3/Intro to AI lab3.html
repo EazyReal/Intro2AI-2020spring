@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Intro to AI lab3 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style="position: relative;"><h1 id="Intro-to-AI-lab3---MineSweeper-with-Logic-Agent" style=""><a class="anchor hidden-xs" href="#Intro-to-AI-lab3---MineSweeper-with-Logic-Agent" title="Intro-to-AI-lab3---MineSweeper-with-Logic-Agent"><span class="octicon octicon-link"></span></a>Intro to AI lab3 - MineSweeper with Logic Agent</h1><p><img src="https://i.imgur.com/zjfHCMJ.png" alt=""></p><h2 id="Author-Information" style=""><a class="anchor hidden-xs" href="#Author-Information" title="Author-Information"><span class="octicon octicon-link"></span></a>Author Information</h2><ul>
+<li>National Chiao Tung University, 0712238</li>
+<li>Yan-Tong Lin</li>
+<li>E-mail: <a href="mailto:0312fs3@gmail.com" target="_blank" rel="noopener">0312fs3@gmail.com</a></li>
+</ul><h2 id="Task-description" style=""><a class="anchor hidden-xs" href="#Task-description" title="Task-description"><span class="octicon octicon-link"></span></a>Task description</h2><ul>
+<li>develop a Minesweeper AI based on (propositional) logic agent</li>
+<li>develop the environment for the agent</li>
+</ul><h2 id="Proposed-Algorithm" style=""><a class="anchor hidden-xs" href="#Proposed-Algorithm" title="Proposed-Algorithm"><span class="octicon octicon-link"></span></a>Proposed Algorithm</h2><ul>
+<li>as described in the assignment spec.</li>
+</ul><h2 id="Implementation" style=""><a class="anchor hidden-xs" href="#Implementation" title="Implementation"><span class="octicon octicon-link"></span></a>Implementation</h2><h3 id="General" style=""><a class="anchor hidden-xs" href="#General" title="General"><span class="octicon octicon-link"></span></a>General</h3><ul>
+<li>Programming Language: python</li>
+<li>IDE: jupyter notebook</li>
+<li>Version Control: git and github</li>
+</ul><h3 id="Game-control-module" style=""><a class="anchor hidden-xs" href="#Game-control-module" title="Game-control-module"><span class="octicon octicon-link"></span></a>Game control module</h3><ul>
+<li>Board(n,m,nmine) generate a random board corresponding to the parameter</li>
+<li>board.get_start(start=sqrt) return a list of starting safe positions</li>
+<li>LogicAgent.solve(board) will solve the problem for the board</li>
+</ul><h3 id="OOP-design-logic-inference-part" style=""><a class="anchor hidden-xs" href="#OOP-design-logic-inference-part" title="OOP-design-logic-inference-part"><span class="octicon octicon-link"></span></a>OOP design (logic inference part)</h3><ul>
+<li>Variable/Literal(var)
+<ul>
+<li>a class
+<ul>
+<li>pos(position of variable, pair of (x,y)</li>
+<li>T(mine or safe)</li>
+</ul>
+</li>
+<li>Clause is set/frozenset of variable <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3709-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-44159" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-44160" class="mjx-mrow"><span id="MJXc-Node-44161" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span><span id="MJXc-Node-44162" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.215em; padding-bottom: 0.373em;">⟹</span></span><span id="MJXc-Node-44163" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-3709">\implies</script></span> Var need to be hashable
+<ul>
+<li>hash with <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3710-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>x</mi><mo>&amp;#x2217;</mo><mn>1000</mn><mo>&amp;#x2217;</mo><mn>10</mn><mo>+</mo><mi>y</mi><mo>&amp;#x2217;</mo><mn>10</mn><mo>+</mo><mi>T</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-44164" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-44165" class="mjx-mrow"><span id="MJXc-Node-44166" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">x</span></span><span id="MJXc-Node-44167" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-44168" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.373em;">1000</span></span><span id="MJXc-Node-44169" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-44170" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.373em;">10</span></span><span id="MJXc-Node-44171" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.32em; padding-bottom: 0.426em;">+</span></span><span id="MJXc-Node-44172" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.479em; padding-right: 0.006em;">y</span></span><span id="MJXc-Node-44173" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-44174" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.373em;">10</span></span><span id="MJXc-Node-44175" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.32em; padding-bottom: 0.426em;">+</span></span><span id="MJXc-Node-44176" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.12em;">T</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi><mo>∗</mo><mn>1000</mn><mo>∗</mo><mn>10</mn><mo>+</mo><mi>y</mi><mo>∗</mo><mn>10</mn><mo>+</mo><mi>T</mi></math></span></span><script type="math/tex" id="MathJax-Element-3710">x*1000*10+ y*10 + T</script></span> to avoid collision
+<ul>
+<li>a slight improvement on performance than hash(repr)</li>
+</ul>
+</li>
+<li>use repr in python to print it</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Clause(cls)
+<ul>
+<li>not a class</li>
+<li>direct use python set/frozenset</li>
+<li>KB is set of clause <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3711-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-44177" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-44178" class="mjx-mrow"><span id="MJXc-Node-44179" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span><span id="MJXc-Node-44180" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.215em; padding-bottom: 0.373em;">⟹</span></span><span id="MJXc-Node-44181" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-3711">\implies</script></span> Clause need to be hashable</li>
+<li>frozenset is hashable but immutable</li>
+<li>set is mutable unhashable</li>
+<li>store in KB as frozenset, and change as set</li>
+</ul>
+</li>
+<li>Knowledge Base(KB)
+<ul>
+<li>treat as a ADT(abstract data type)</li>
+<li>define insert(), match()… key function for it</li>
+<li>used by agent to do inference</li>
+</ul>
+</li>
+</ul><h3 id="logic-agent" style=""><a class="anchor hidden-xs" href="#logic-agent" title="logic-agent"><span class="octicon octicon-link"></span></a>logic agent</h3><ul>
+<li>singleton clause meams ground truth</li>
+<li>do matching until it get a singleton clause (or fail with MATCHING LIMIT EXCEED)</li>
+<li>apply changes corresponding to the singleton clause</li>
+<li>algorithm detail is as described in assignment descrition</li>
+<li>some setting for <strong>hyperparams</strong>:
+<ul>
+<li>CHECK_SUB_WHEN_INSERT:
+<ul>
+<li>this can reduce the insert complex to O(|KB0|) from O(|KB|+|KB0|)</li>
+<li>but may not be a good trade since max_kb/kb_inserted records indicate this can cause the kb to grow faster</li>
+<li>however, checking subsumption before matching should relieve a little(since the most time spent correspodint to |KB| is matching)</li>
+</ul>
+</li>
+<li>MAX_ITER = 3:
+<ul>
+<li>max iteration of matching permmited</li>
+<li>3 is enough for solving most puzzles while keeping running time acceptable</li>
+</ul>
+</li>
+<li>MATCH_SIZE_LIMIT = 2:
+<ul>
+<li>max size for one side of matching</li>
+<li>set to 2 can</li>
+<li>extra experiment can be done on this parameter</li>
+</ul>
+</li>
+<li>GLOBAL_LIMIT = 1000:
+<ul>
+<li>when to add in global limit</li>
+<li>was set to 5000 but cause heavy time comsumption
+<ul>
+<li>a small experiment showed time is influenced a lot by this factor</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>No time for cross validation for limited time
+<ul>
+<li>may not be the optimal set of hyper params</li>
+</ul>
+</li>
+</ul><h2 id="Experiment-Results-and-Discussion" style=""><a class="anchor hidden-xs" href="#Experiment-Results-and-Discussion" title="Experiment-Results-and-Discussion"><span class="octicon octicon-link"></span></a>Experiment Results and Discussion</h2><h3 id="Evaluation-Criterion" style=""><a class="anchor hidden-xs" href="#Evaluation-Criterion" title="Evaluation-Criterion"><span class="octicon octicon-link"></span></a>Evaluation Criterion</h3><ul>
+<li>definition
+<ul>
+<li><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2676-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>n</mi><mo>,</mo><mi>m</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37611" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37612" class="mjx-mrow"><span id="MJXc-Node-37613" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-37614" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.156em; padding-bottom: 0.532em;">,</span></span><span id="MJXc-Node-37615" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">m</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>,</mo><mi>m</mi></math></span></span><script type="math/tex" id="MathJax-Element-2676">n, m</script></span> : board width and length</li>
+<li><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2677-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>n</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>e</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37616" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37617" class="mjx-mrow"><span id="MJXc-Node-37618" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-37619" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">m</span></span><span id="MJXc-Node-37620" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-37621" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-37622" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-2677">nmine</script></span> : # of mine</li>
+<li><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2678-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>T</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37623" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37624" class="mjx-mrow"><span id="MJXc-Node-37625" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.12em;">T</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi></math></span></span><script type="math/tex" id="MathJax-Element-2678">T</script></span> : testcases</li>
+</ul>
+</li>
+<li><strong>grid success(win) rate</strong>
+<ul>
+<li><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2679-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mfrac><mrow><mo>&amp;#x2211;</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>K</mi><mi>B</mi><mn>0</mn><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow></mrow><mrow><mi>T</mi><mi>n</mi><mi>m</mi></mrow></mfrac></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37626" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37627" class="mjx-mrow"><span id="MJXc-Node-37628" class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 2.918em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 4.127em; top: -1.633em;"><span id="MJXc-Node-37629" class="mjx-mrow" style=""><span id="MJXc-Node-37630" class="mjx-mo"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.532em; padding-bottom: 0.532em;">∑</span></span><span id="MJXc-Node-37631" class="mjx-texatom MJXc-space1"><span id="MJXc-Node-37632" class="mjx-mrow"><span id="MJXc-Node-37633" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-37634" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.04em;">K</span></span><span id="MJXc-Node-37635" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-37636" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.373em;">0</span></span><span id="MJXc-Node-37637" class="mjx-texatom"><span id="MJXc-Node-37638" class="mjx-mrow"><span id="MJXc-Node-37639" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 4.127em; bottom: -0.614em;"><span id="MJXc-Node-37640" class="mjx-mrow" style=""><span id="MJXc-Node-37641" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-37642" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-37643" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">m</span></span></span></span><span class="mjx-line" style="border-bottom: 1.3px solid; top: -0.283em; width: 2.918em;"></span></span><span class="mjx-vsize" style="height: 1.589em; vertical-align: -0.434em;"></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mo>∑</mo><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>K</mi><mi>B</mi><mn>0</mn><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow></mrow><mrow><mi>T</mi><mi>n</mi><mi>m</mi></mrow></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-2679">\frac{\sum|KB0|}{Tnm}</script></span></li>
+<li>percentage of KB0(inferenced ground truth) to all grids</li>
+</ul>
+</li>
+<li><strong>board success(win) rate</strong>
+<ul>
+<li><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2680-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mfrac><mrow><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mtext>&amp;#xA0;</mtext><mi>o</mi><mi>f</mi><mtext>&amp;#xA0;</mtext><mi>s</mi><mi>u</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>s</mi><mi>s</mi><mtext>&amp;#xA0;</mtext><mi>b</mi><mi>o</mi><mi>a</mi><mi>r</mi><mi>d</mi><mi>s</mi></mrow><mi>T</mi></mfrac></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37644" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37645" class="mjx-mrow"><span id="MJXc-Node-37646" class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 6.375em; padding: 0px 0.12em;"><span class="mjx-numerator" style="font-size: 70.7%; width: 9.015em; top: -1.543em;"><span id="MJXc-Node-37647" class="mjx-mrow" style=""><span id="MJXc-Node-37648" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.426em; padding-bottom: 0.532em;">#</span></span><span id="MJXc-Node-37649" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-37650" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">o</span></span><span id="MJXc-Node-37651" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.479em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-37652" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-37653" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-37654" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">u</span></span><span id="MJXc-Node-37655" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-37656" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-37657" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-37658" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-37659" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-37660" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-37661" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">b</span></span><span id="MJXc-Node-37662" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">o</span></span><span id="MJXc-Node-37663" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-37664" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">r</span></span><span id="MJXc-Node-37665" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.003em;">d</span></span><span id="MJXc-Node-37666" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span></span></span><span class="mjx-denominator" style="font-size: 70.7%; width: 9.015em; bottom: -0.603em;"><span id="MJXc-Node-37667" class="mjx-mi" style=""><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.12em;">T</span></span></span><span class="mjx-line" style="border-bottom: 1.3px solid; top: -0.283em; width: 6.375em;"></span></span><span class="mjx-vsize" style="height: 1.518em; vertical-align: -0.426em;"></span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mrow><mi mathvariant="normal">#</mi><mtext>&nbsp;</mtext><mi>o</mi><mi>f</mi><mtext>&nbsp;</mtext><mi>s</mi><mi>u</mi><mi>c</mi><mi>c</mi><mi>e</mi><mi>s</mi><mi>s</mi><mtext>&nbsp;</mtext><mi>b</mi><mi>o</mi><mi>a</mi><mi>r</mi><mi>d</mi><mi>s</mi></mrow><mi>T</mi></mfrac></math></span></span><script type="math/tex" id="MathJax-Element-2680">\frac{\#~of~success~boards}{T}</script></span></li>
+<li>percentage that the agent completes the whole game</li>
+</ul>
+</li>
+<li><strong>max KB size(max_kb)</strong>
+<ul>
+<li>how many clauses is in the KB of agent at the same time(count on insert)
+<ul>
+<li>the maximum of this value indicate the max memory usage during the process</li>
+</ul>
+</li>
+<li>a measurement for memory used</li>
+</ul>
+</li>
+<li><strong>inserted clauses(inserted_cls)</strong>
+<ul>
+<li>how many clauses is put into KB(count on insert)</li>
+<li>a evaluation of time used
+<ul>
+<li>but since matching step takes <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2681-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>O</mi><mo stretchy=&quot;false&quot;>(</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>K</mi><mi>B</mi><msup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mn>2</mn></msup><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-37668" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-37669" class="mjx-mrow"><span id="MJXc-Node-37670" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.32em;">O</span></span><span id="MJXc-Node-37671" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-37672" class="mjx-texatom"><span id="MJXc-Node-37673" class="mjx-mrow"><span id="MJXc-Node-37674" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-37675" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.04em;">K</span></span><span id="MJXc-Node-37676" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-37677" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-37678" class="mjx-texatom"><span id="MJXc-Node-37679" class="mjx-mrow"><span id="MJXc-Node-37680" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.71em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-37681" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.32em;">2</span></span></span></span><span id="MJXc-Node-37682" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>K</mi><mi>B</mi><msup><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mn>2</mn></msup><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2681">O(|KB|^2)</script></span> should be the dominating term</li>
+<li>this may be positive related to execution time but not linearly</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h3 id="Winrate--Board-Size" style=""><a class="anchor hidden-xs" href="#Winrate--Board-Size" title="Winrate--Board-Size"><span class="octicon octicon-link"></span></a>Winrate / Board Size</h3><ul>
+<li>compare (grid) success rate on different board setting</li>
+<li>evaluate by 100 random generated board for each setting</li>
+</ul><table>
+<thead>
+<tr>
+<th></th>
+<th>(9,9), 10</th>
+<th>(16,16), 25</th>
+<th>(32,16), 99</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grid Winrate</td>
+<td>0.9888</td>
+<td>0.9989</td>
+<td>0.9779</td>
+</tr>
+<tr>
+<td>Board Winrate</td>
+<td>0.93</td>
+<td>0.92</td>
+<td>0.48</td>
+</tr>
+</tbody>
+</table><h4 id="Discussion0"><a class="anchor hidden-xs" href="#Discussion0" title="Discussion0"><span class="octicon octicon-link"></span></a>Discussion</h4><ul>
+<li><strong>observations</strong>
+<ul>
+<li>board winrate drop dramatically in bigger map</li>
+<li>grid winrate is similar for 3 cases</li>
+</ul>
+</li>
+<li>about <strong>ambiguity</strong>
+<ul>
+<li>both winrate is associated with “ambiguity”(multiple solution of a board),
+<ul>
+<li>ambiguity <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2444-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mspace width=&quot;thickmathspace&quot; /><mo stretchy=&quot;false&quot;>&amp;#x27F9;</mo><mspace width=&quot;thickmathspace&quot; /></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-35233" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-35234" class="mjx-mrow"><span id="MJXc-Node-35235" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span><span id="MJXc-Node-35236" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.215em; padding-bottom: 0.373em;">⟹</span></span><span id="MJXc-Node-35237" class="mjx-mspace" style="width: 0.278em; height: 0px;"></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mspace width="thickmathspace"></mspace><mo stretchy="false">⟹</mo><mspace width="thickmathspace"></mspace></math></span></span><script type="math/tex" id="MathJax-Element-2444">\implies</script></span> logic agent cannot get a deterministic result</li>
+</ul>
+</li>
+<li>the ambiguity case happens in the corners in most cases
+<ul>
+<li>so the grid winrate is similar between groups</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>about <strong>global constraint</strong>
+<ul>
+<li>I guess the lower success rate of big map is caused by the global constraint is added too late compared to small boards</li>
+</ul>
+</li>
+</ul><h3 id="Resources-Spent--Board-Size" style=""><a class="anchor hidden-xs" href="#Resources-Spent--Board-Size" title="Resources-Spent--Board-Size"><span class="octicon octicon-link"></span></a>Resources Spent / Board Size</h3><ul>
+<li>my language is python3, so execution is slow :(</li>
+<li>evaluate by 100 random generated board for each setting(average)</li>
+</ul><table>
+<thead>
+<tr>
+<th></th>
+<th>(9,9), 10</th>
+<th>(16,16), 25</th>
+<th>(32,16), 99</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Runtime</td>
+<td>0.56(sec)</td>
+<td>2.19(sec)</td>
+<td>8.48(sec)</td>
+</tr>
+<tr>
+<td>max_kb</td>
+<td>194.13</td>
+<td>338.65</td>
+<td>1056.04</td>
+</tr>
+<tr>
+<td>inserted_cls</td>
+<td>343.48</td>
+<td>762.98</td>
+<td>2861.54</td>
+</tr>
+</tbody>
+</table><h4 id="Discussion1"><a class="anchor hidden-xs" href="#Discussion1" title="Discussion1"><span class="octicon octicon-link"></span></a>Discussion</h4><ul>
+<li>runtime is positively related to boardsize (~<span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2629-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>O</mi><mo stretchy=&quot;false&quot;>(</mo><mi>n</mi><mo>&amp;#x2217;</mo><mi>m</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-36813" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-36814" class="mjx-mrow"><span id="MJXc-Node-36815" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.32em;">O</span></span><span id="MJXc-Node-36816" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-36817" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-36818" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-36819" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">m</span></span><span id="MJXc-Node-36820" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo>∗</mo><mi>m</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2629">O(n*m)</script></span>)</li>
+<li>analytically, runtime should be <strong><span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2630-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>O</mi><mo stretchy=&quot;false&quot;>(</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>K</mi><mi>B</mi><msup><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mn>2</mn></msup><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-36821" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-36822" class="mjx-mrow"><span id="MJXc-Node-36823" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.32em;">O</span></span><span id="MJXc-Node-36824" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-36825" class="mjx-texatom"><span id="MJXc-Node-36826" class="mjx-mrow"><span id="MJXc-Node-36827" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-36828" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.04em;">K</span></span><span id="MJXc-Node-36829" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-36830" class="mjx-msubsup"><span class="mjx-base"><span id="MJXc-Node-36831" class="mjx-texatom"><span id="MJXc-Node-36832" class="mjx-mrow"><span id="MJXc-Node-36833" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span></span><span class="mjx-sup" style="font-size: 70.7%; vertical-align: 0.71em; padding-left: 0px; padding-right: 0.071em;"><span id="MJXc-Node-36834" class="mjx-mn" style=""><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.32em;">2</span></span></span></span><span id="MJXc-Node-36835" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>K</mi><mi>B</mi><msup><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mn>2</mn></msup><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-2630">O(|KB|^2)</script></span></strong>
+<ul>
+<li>max_kb size show a trend for this</li>
+<li>using avg_kb may be more useful for time evaluation then max_kb</li>
+</ul>
+</li>
+<li>notice that inserted kb show linearly dependecy to runtime on the cases (16,16), 25 and (32,16), 99
+<ul>
+<li>I geuss it was that inference time is smaller compared to inserting time</li>
+</ul>
+</li>
+<li>Future Work
+<ul>
+<li>conduct experiment to show the <strong>ratio of time spent on inference and insertion</strong></li>
+<li>add additional statistic avg_kb, matching_size(how match cls generated from matching)…</li>
+</ul>
+</li>
+</ul><h3 id="Winrate--Mine-Density" style=""><a class="anchor hidden-xs" href="#Winrate--Mine-Density" title="Winrate--Mine-Density"><span class="octicon octicon-link"></span></a>Winrate / Mine Density</h3><ul>
+<li>compare success rate on different mine density setting
+<ul>
+<li>(9,9) board with different number of mines with range(0,35, +5)</li>
+</ul>
+</li>
+</ul><p><img src="https://i.imgur.com/Z2DNFFZ.png" alt="" width="50%"><br>
+<img src="https://i.imgur.com/7N6jexl.png" alt="" width="50%"></p><h4 id="Discussion0"><a class="anchor hidden-xs" href="#Discussion0" title="Discussion0"><span class="octicon octicon-link"></span></a>Discussion</h4><ul>
+<li>Observation
+<ul>
+<li>higher density =&gt; lower winrate</li>
+<li>the function seems to be in the shape of logistic function!</li>
+</ul>
+</li>
+<li>My Conjecture
+<ul>
+<li>higher mine density can cause
+<ul>
+<li>less hint cells</li>
+<li>higher ambiguity</li>
+</ul>
+</li>
+<li>so higher density results in lower winrate</li>
+<li>maybe increase MAX_ITERATION_LIMIT on matching can improve winrate when density is high</li>
+</ul>
+</li>
+</ul><h3 id="Winrate--Number-of-Starting-Hints" style=""><a class="anchor hidden-xs" href="#Winrate--Number-of-Starting-Hints" title="Winrate--Number-of-Starting-Hints"><span class="octicon octicon-link"></span></a>Winrate / Number of Starting Hints</h3><ul>
+<li>compare success rate on different number of starting hints
+<ul>
+<li>(9,9), 15 board with different number of hints given with  range(3,27, +3)</li>
+</ul>
+</li>
+<li>take (9,9), 15 because the winrate is close to about 50% given 9 hint according to previous experiments</li>
+</ul><p><img src="https://i.imgur.com/mhXHdlp.png" alt="" width="50%"><br>
+<img src="https://i.imgur.com/wTJbTKE.png" alt="" width="50%"></p><h4 id="Discussion"><a class="anchor hidden-xs" href="#Discussion" title="Discussion"><span class="octicon octicon-link"></span></a>Discussion</h4><ul>
+<li>Observation:
+<ul>
+<li>winrate acends as number of given hints increases</li>
+<li>shape of linear function(game winrate)</li>
+<li>shape of logarithm function (grid winrate)</li>
+</ul>
+</li>
+<li>My conjecture:
+<ul>
+<li>more information means more success rate without a doubt</li>
+<li>very high grid winrate (&gt;95%) when given &gt;12 hints
+<ul>
+<li>note that the grid has 81 cells</li>
+<li>12 hint means ~1/7 cell is given</li>
+<li>a cell has 8 neighbor and 72 non-neighbor cells</li>
+<li>so almost every cell have one neighbor revealed intially(in probability)</li>
+<li>I think this is one cause of high winrate</li>
+</ul>
+</li>
+<li>winrate cease to grow at around 10(~9), which is closed to n(board width)</li>
+</ul>
+</li>
+</ul><h4 id="Redo-in-1616"><a class="anchor hidden-xs" href="#Redo-in-1616" title="Redo-in-1616"><span class="octicon octicon-link"></span></a>Redo in 16*16</h4><ul>
+<li>for my conjecture, I redo the <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-4311-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mtext>&amp;#xA0;</mtext><mi>o</mi><mi>f</mi><mtext>&amp;#xA0;</mtext><mi>h</mi><mi>i</mi><mi>n</mi><mi>t</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-49395" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-49396" class="mjx-mrow"><span id="MJXc-Node-49397" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.426em; padding-bottom: 0.532em;">#</span></span><span id="MJXc-Node-49398" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-49399" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">o</span></span><span id="MJXc-Node-49400" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.479em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-49401" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-49402" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">h</span></span><span id="MJXc-Node-49403" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-49404" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-49405" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">t</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">#</mi><mtext>&nbsp;</mtext><mi>o</mi><mi>f</mi><mtext>&nbsp;</mtext><mi>h</mi><mi>i</mi><mi>n</mi><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-4311">\#~of~hint</script></span> experiments to verify ny guess</li>
+<li>setting
+<ul>
+<li>16*16 grid</li>
+<li>50 mines</li>
+<li>starting hint number = range(5, 50, +5)<br>
+<img src="https://i.imgur.com/GxnIoVU.png" alt="" width="50%"><br>
+<img src="https://i.imgur.com/CzMOREr.png" alt="" width="50%"></li>
+</ul>
+</li>
+<li>the setting of nmine is calcuted by density ~0.2 for the experiment on density
+<ul>
+<li>it shares similar winrate graph as the graph of 9*9 board with same density!</li>
+</ul>
+</li>
+<li>grid winrate shows shape like logorithm function again</li>
+<li>for 16*16 board with similar density, 20 hints is enough for 95%up (grid) winrate</li>
+<li>reach 90%up winrate for <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-4312-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mi>h</mi><mi>i</mi><mi>n</mi><mi>t</mi><mo>&amp;gt;</mo><mn>16</mn></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-49406" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-49407" class="mjx-mrow"><span id="MJXc-Node-49408" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.426em; padding-bottom: 0.532em;">#</span></span><span id="MJXc-Node-49409" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">h</span></span><span id="MJXc-Node-49410" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-49411" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">n</span></span><span id="MJXc-Node-49412" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">t</span></span><span id="MJXc-Node-49413" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.267em; padding-bottom: 0.373em;">&gt;</span></span><span id="MJXc-Node-49414" class="mjx-mn MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.373em; padding-bottom: 0.373em;">16</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="normal">#</mi><mi>h</mi><mi>i</mi><mi>n</mi><mi>t</mi><mo>&gt;</mo><mn>16</mn></math></span></span><script type="math/tex" id="MathJax-Element-4312">\#hint > 16</script></span>
+<ul>
+<li>sqrt(grid_size) is enough for success of our logic agent</li>
+<li>the setting given by TA/Teacher is reasonable!</li>
+</ul>
+</li>
+</ul><h2 id="Bonus-Discussion" style=""><a class="anchor hidden-xs" href="#Bonus-Discussion" title="Bonus-Discussion"><span class="octicon octicon-link"></span></a>Bonus Discussion</h2><p>[Optional / Extra Credits]<br>
+These are for discussion only; no implementation/experiments required.<br>
+ How to use first-order logic here?<br>
+ Discuss whether forward chaining or backward chaining applicable to this problem.<br>
+ Propose some ideas about how to improve the success rate of “guessing” when you want to proceed from a<br>
+“stuck” game.<br>
+ Discuss ideas of modifying the method in Assignment#2 to solve the current problem.</p><h3 id="How-to-apply-FOL" style=""><a class="anchor hidden-xs" href="#How-to-apply-FOL" title="How-to-apply-FOL"><span class="octicon octicon-link"></span></a>How to apply FOL</h3><ul>
+<li>How to inference with FOL is not covered here(please refer to lecture notes and other references)</li>
+<li>We decribe the axioms for the task here</li>
+</ul><h4 id="Definitions-of-symbols"><a class="anchor hidden-xs" href="#Definitions-of-symbols" title="Definitions-of-symbols"><span class="octicon octicon-link"></span></a>Definitions of symbols</h4><ul>
+<li>let <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-674-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>B</mi><mo stretchy=&quot;false&quot;>[</mo><mi>i</mi><mo stretchy=&quot;false&quot;>]</mo><mo stretchy=&quot;false&quot;>[</mo><mi>j</mi><mo stretchy=&quot;false&quot;>]</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6152" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6153" class="mjx-mrow"><span id="MJXc-Node-6154" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-6155" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6156" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-6157" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span><span id="MJXc-Node-6158" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6159" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.479em;">j</span></span><span id="MJXc-Node-6160" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-674">B[i][j]</script></span> be the square at the i-th row, j-th column</li>
+<li>we define <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-675-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>M</mi><mo stretchy=&quot;false&quot;>(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6161" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6162" class="mjx-mrow"><span id="MJXc-Node-6163" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.081em;">M</span></span><span id="MJXc-Node-6164" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-6165" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-6166" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.156em; padding-bottom: 0.532em;">,</span></span><span id="MJXc-Node-6167" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.479em;">j</span></span><span id="MJXc-Node-6168" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>M</mi><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-675">M(i, j)</script></span> as an indicator that there is a mine at <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-676-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>B</mi><mo stretchy=&quot;false&quot;>[</mo><mi>i</mi><mo stretchy=&quot;false&quot;>]</mo><mo stretchy=&quot;false&quot;>[</mo><mi>j</mi><mo stretchy=&quot;false&quot;>]</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6169" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6170" class="mjx-mrow"><span id="MJXc-Node-6171" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-6172" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6173" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-6174" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span><span id="MJXc-Node-6175" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6176" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.479em;">j</span></span><span id="MJXc-Node-6177" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-676">B[i][j]</script></span></li>
+<li>we define <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-677-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>A</mi><mo stretchy=&quot;false&quot;>(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo>,</mo><mi>k</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6178" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6179" class="mjx-mrow"><span id="MJXc-Node-6180" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">A</span></span><span id="MJXc-Node-6181" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-6182" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-6183" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.156em; padding-bottom: 0.532em;">,</span></span><span id="MJXc-Node-6184" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.479em;">j</span></span><span id="MJXc-Node-6185" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.156em; padding-bottom: 0.532em;">,</span></span><span id="MJXc-Node-6186" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">k</span></span><span id="MJXc-Node-6187" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo>,</mo><mi>k</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-677">A(i, j, k)</script></span> as an indicator that there is <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-678-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>e</mi><mi>x</mi><mi>a</mi><mi>c</mi><mi>t</mi><mtext>&amp;#xA0;</mtext><mi>k</mi></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6188" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6189" class="mjx-mrow"><span id="MJXc-Node-6190" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-6191" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">x</span></span><span id="MJXc-Node-6192" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-6193" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-6194" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">t</span></span><span id="MJXc-Node-6195" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-6196" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">k</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>e</mi><mi>x</mi><mi>a</mi><mi>c</mi><mi>t</mi><mtext>&nbsp;</mtext><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-678">exact~k</script></span> mines in the neighborhood of <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-679-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>B</mi><mo stretchy=&quot;false&quot;>[</mo><mi>i</mi><mo stretchy=&quot;false&quot;>]</mo><mo stretchy=&quot;false&quot;>[</mo><mi>j</mi><mo stretchy=&quot;false&quot;>]</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-6197" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-6198" class="mjx-mrow"><span id="MJXc-Node-6199" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-6200" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6201" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-6202" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span><span id="MJXc-Node-6203" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">[</span></span><span id="MJXc-Node-6204" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.479em;">j</span></span><span id="MJXc-Node-6205" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">]</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-679">B[i][j]</script></span></li>
+</ul><h4 id="Axioms-for-the-inference-engine"><a class="anchor hidden-xs" href="#Axioms-for-the-inference-engine" title="Axioms-for-the-inference-engine"><span class="octicon octicon-link"></span></a>Axioms for the inference engine</h4><ul>
+<li>M(i, j) is well defined itself</li>
+<li>For A(i, j, k) with domain of k is {0, 1, 2, …, 8}, we need to define the evaluation of A(i, j, 0) to A(i, j, 8)</li>
+<li>Take domain = {0, 1, 2} as example, domain with higher maximum of k can done similarly
+<ul>
+<li>rule of global constraint</li>
+<li>rule of A(i, j, 0)</li>
+<li>rule of A(i, j, 1)</li>
+<li>rule of A(i, j, 2)<br>
+<img src="https://i.imgur.com/19F8uz1.png" alt=""></li>
+</ul>
+</li>
+<li>reference: <a href="https://www2.cs.duke.edu/courses/spring06/cps102/notes/sweeper.pdf" target="_blank" rel="noopener">https://www2.cs.duke.edu/courses/spring06/cps102/notes/sweeper.pdf</a></li>
+</ul><h3 id="Forwardbackward-chainning-applicable" style=""><a class="anchor hidden-xs" href="#Forwardbackward-chainning-applicable" title="Forwardbackward-chainning-applicable"><span class="octicon octicon-link"></span></a>Forward/backward chainning applicable?</h3><ul>
+<li>We “cannnot” apply FC or BC here with original KB “directly”</li>
+<li>Since FC and BC require all clauses to be “horn clause”
+<ul>
+<li>horn clause: clauses with exactly one or no positive literal</li>
+</ul>
+</li>
+<li>The task’s KB is made of all positive or all negtive clauses</li>
+<li>However, we can make all clauses horn by negating Mine(x,y) to Safe(x,y) or conversely</li>
+<li>But on doing this, there will be <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1472-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>O</mi><mo stretchy=&quot;false&quot;>(</mo><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-19676" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-19677" class="mjx-mrow"><span id="MJXc-Node-19678" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.32em;">O</span></span><span id="MJXc-Node-19679" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-19680" class="mjx-texatom"><span id="MJXc-Node-19681" class="mjx-mrow"><span id="MJXc-Node-19682" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-19683" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-19684" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">l</span></span><span id="MJXc-Node-19685" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-19686" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">u</span></span><span id="MJXc-Node-19687" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-19688" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-19689" class="mjx-texatom"><span id="MJXc-Node-19690" class="mjx-mrow"><span id="MJXc-Node-19691" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-19692" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-1472">O(|clause|)</script></span> horn clause generate by a single clause</li>
+<li>The complexity is linear to |KB|, but now size KB is actually bigger(O<span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1473-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mo stretchy=&quot;false&quot;>(</mo><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mtext>&amp;#xA0;</mtext><mi>o</mi><mi>f</mi><mtext>&amp;#xA0;</mtext><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mtext>&amp;#xA0;</mtext><mo>&amp;#x2217;</mo><mtext>&amp;#xA0;</mtext><mi>a</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mo stretchy=&quot;false&quot;>|</mo></mrow><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-19693" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-19694" class="mjx-mrow"><span id="MJXc-Node-19695" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-19696" class="mjx-mi"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.426em; padding-bottom: 0.532em;">#</span></span><span id="MJXc-Node-19697" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-19698" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">o</span></span><span id="MJXc-Node-19699" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.479em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-19700" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-19701" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-19702" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">l</span></span><span id="MJXc-Node-19703" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-19704" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">u</span></span><span id="MJXc-Node-19705" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-19706" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-19707" class="mjx-mtext"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-19708" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-19709" class="mjx-mtext MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.262em; padding-bottom: 0.32em;">&nbsp;</span></span><span id="MJXc-Node-19710" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-19711" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">v</span></span><span id="MJXc-Node-19712" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-19713" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">r</span></span><span id="MJXc-Node-19714" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-19715" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.479em; padding-right: 0.003em;">g</span></span><span id="MJXc-Node-19716" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-19717" class="mjx-texatom"><span id="MJXc-Node-19718" class="mjx-mrow"><span id="MJXc-Node-19719" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-19720" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">c</span></span><span id="MJXc-Node-19721" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">l</span></span><span id="MJXc-Node-19722" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">a</span></span><span id="MJXc-Node-19723" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">u</span></span><span id="MJXc-Node-19724" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">s</span></span><span id="MJXc-Node-19725" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">e</span></span><span id="MJXc-Node-19726" class="mjx-texatom"><span id="MJXc-Node-19727" class="mjx-mrow"><span id="MJXc-Node-19728" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">|</span></span></span></span><span id="MJXc-Node-19729" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi mathvariant="normal">#</mi><mtext>&nbsp;</mtext><mi>o</mi><mi>f</mi><mtext>&nbsp;</mtext><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mtext>&nbsp;</mtext><mo>∗</mo><mtext>&nbsp;</mtext><mi>a</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>a</mi><mi>g</mi><mi>e</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mi>c</mi><mi>l</mi><mi>a</mi><mi>u</mi><mi>s</mi><mi>e</mi><mrow class="MJX-TeXAtom-ORD"><mo stretchy="false">|</mo></mrow><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-1473">(\#~of~clause~*~average|clause|)</script></span>)</li>
+</ul><h3 id="How-to-improve-winrate-by-guessinng-when-stuck" style=""><a class="anchor hidden-xs" href="#How-to-improve-winrate-by-guessinng-when-stuck" title="How-to-improve-winrate-by-guessinng-when-stuck"><span class="octicon octicon-link"></span></a>How to improve winrate by guessinng when stuck</h3><ul>
+<li>When it comes to guessing, it means that:
+<ul>
+<li>We cannot make a singleton clause out of limited resolutions</li>
+</ul>
+</li>
+<li>We must do backtraching search in this situation to try to get a solution</li>
+<li>May use proof contradiction
+<ul>
+<li>add not Mine(x,y)to KB0 and do resolution + pairwise matching</li>
+<li>see if there is empty clause(negative tautology) generated</li>
+<li>if there is, Safe(x,y) is True</li>
+</ul>
+</li>
+<li>Can use similar concept to CSP solver:
+<ul>
+<li>MRV
+<ul>
+<li>Is of no use here, since {0,1} is possible for all non-singleton clasues</li>
+</ul>
+</li>
+<li>Degree
+<ul>
+<li>I think degree heuristic can help a lot</li>
+<li>Since adding a big degree guess to tmp KB0 can do a lot of resolutions</li>
+</ul>
+</li>
+<li>LCV
+<ul>
+<li>If the “least constraint” can be well-defined, LCV is going to help in my opinion</li>
+<li>a suitable definition of “constraint” can be the KB’s degree of freedom
+<ul>
+<li>after assgin the guess, want the number of singleton term to be smaller</li>
+<li>or define a fuction like <span class="mathjax"><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1135-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><mi>f</mi><mo stretchy=&quot;false&quot;>(</mo><mi>K</mi><mi>B</mi><mo stretchy=&quot;false&quot;>)</mo><mo>=</mo><mo>&amp;#x2211;</mo><mi>w</mi><mo stretchy=&quot;false&quot;>(</mo><mi>i</mi><mo stretchy=&quot;false&quot;>)</mo><mo>&amp;#x2217;</mo><mi mathvariant=&quot;normal&quot;>&amp;#x0023;</mi><mo stretchy=&quot;false&quot;>(</mo><mi>i</mi><mo stretchy=&quot;false&quot;>)</mo></math>" role="presentation" style="font-size: 118%; position: relative;"><span id="MJXc-Node-13207" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-13208" class="mjx-mrow"><span id="MJXc-Node-13209" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.479em; padding-right: 0.06em;">f</span></span><span id="MJXc-Node-13210" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-13211" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em; padding-right: 0.04em;">K</span></span><span id="MJXc-Node-13212" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.479em; padding-bottom: 0.267em;">B</span></span><span id="MJXc-Node-13213" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span><span id="MJXc-Node-13214" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.056em; padding-bottom: 0.32em;">=</span></span><span id="MJXc-Node-13215" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-size1-R" style="padding-top: 0.532em; padding-bottom: 0.532em;">∑</span></span><span id="MJXc-Node-13216" class="mjx-mi MJXc-space1"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.215em; padding-bottom: 0.267em;">w</span></span><span id="MJXc-Node-13217" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-13218" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-13219" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span><span id="MJXc-Node-13220" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.162em; padding-bottom: 0.32em;">∗</span></span><span id="MJXc-Node-13221" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.426em; padding-bottom: 0.532em;">#</span></span><span id="MJXc-Node-13222" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">(</span></span><span id="MJXc-Node-13223" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.426em; padding-bottom: 0.267em;">i</span></span><span id="MJXc-Node-13224" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.479em; padding-bottom: 0.585em;">)</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi><mo stretchy="false">(</mo><mi>K</mi><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mo>∑</mo><mi>w</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo><mo>∗</mo><mi mathvariant="normal">#</mi><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-1135">f(KB) = \sum w(i)*\#(i)</script></span> where i is the size of a term</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Another why is to do probabilistic estimation on the chance of there is a mine in certain grid</li>
+</ul><h3 id="How-to-modify-Assignment-2-to-solve-iteractive-version" style=""><a class="anchor hidden-xs" href="#How-to-modify-Assignment-2-to-solve-iteractive-version" title="How-to-modify-Assignment-2-to-solve-iteractive-version"><span class="octicon octicon-link"></span></a>How to modify Assignment 2 to solve iteractive version</h3><ul>
+<li>we can view the known constraints(hints) as KB</li>
+<li>do backtracking search as we do in programming assignment 2</li>
+<li>for the case that  a guess is necessary, can use some approach to estimate the probability of a mine is in the position</li>
+<li>add constraint when accessing a new safe position(insert to KB)</li>
+<li>with more constraint the domain of variables will change accordingly</li>
+</ul><h2 id="Conclusion" style=""><a class="anchor hidden-xs" href="#Conclusion" title="Conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2><ul>
+<li>Propositional Logic Agent alone is enough to inference a great percentage of MineSweeper game with smaller board</li>
+<li>We analysis the following:
+<ul>
+<li>the resources spent on different game setting</li>
+<li>winrate on different board size</li>
+<li>winrate on different mine density</li>
+<li>winrate on different numbers of starting hints</li>
+</ul>
+</li>
+<li>Future Works
+<ul>
+<li>There is a lot of method that worth trying in the bonus discussion area.</li>
+<li>more statistics
+<ul>
+<li>time on inference(matching), time on insert</li>
+<li>kb size changes(average, or as graph to how it goes throughout the process of game)</li>
+</ul>
+</li>
+<li>experiment on hyperparams
+<ul>
+<li>maxtching limit of clause size</li>
+<li>when to put in global constraint</li>
+<li>maximal iteration constraint</li>
+</ul>
+</li>
+<li>different implementation
+<ul>
+<li>FOL</li>
+<li>Propositional logic solver with enumeration of horn clause + FC
+<ul>
+<li>forward chainning is better than BC since we want the whole result</li>
+</ul>
+</li>
+<li>CSP solver</li>
+<li>add Guessing Stategy
+<ul>
+<li>calculate Prob</li>
+<li>calculate heristics</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>I have made most of my conjecture by guessing, should provide more mathematical insights to it!</li>
+</ul>
+</li>
+</ul><h2 id="Appendix-A---Code" style=""><a class="anchor hidden-xs" href="#Appendix-A---Code" title="Appendix-A---Code"><span class="octicon octicon-link"></span></a>Appendix A - Code</h2><h3 id="lab3_2py" style=""><a class="anchor hidden-xs" href="#lab3_2py" title="lab3_2py"><span class="octicon octicon-link"></span></a>lab3_2.py</h3><ul>
+<li>core of algorithm and resource/setting exp</li>
+<li>version 2(version 1 was bugged)</li>
+</ul><pre><code class="=python hljs"><span class="hljs-comment"># lab3-2.py</span>
+<span class="hljs-comment"># author = Yan-Tong Lin</span>
+<span class="hljs-comment"># !/usr/bin/env python</span>
+<span class="hljs-comment"># coding: utf-8</span>
+
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> itertools
+<span class="hljs-keyword">from</span> copy <span class="hljs-keyword">import</span> deepcopy
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># hyper params</span>
+MATCH_ITER_LIMIT = <span class="hljs-number">3</span> <span class="hljs-comment"># n =&gt; n^2 =&gt; n^4 =&gt; n^8 =&gt; n^16, or can use CLS_LIMIT</span>
+MATCH_SIZE_LIMIT = <span class="hljs-number">2</span> <span class="hljs-comment"># subset with size &lt;= limit can match wih other</span>
+GLOBAL_LIMIT = <span class="hljs-number">1000</span> <span class="hljs-comment"># when to add global limit, when C(n,m) is less than global limit</span>
+CLS_LIMIT = <span class="hljs-number">1000</span>
+MAX_GRID = <span class="hljs-number">500</span> <span class="hljs-comment"># check var, use constant there </span>
+CHECK_SUB_ON_INSERT = <span class="hljs-keyword">True</span>
+
+<span class="hljs-comment"># function to print a 2-D board</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printA</span><span class="hljs-params">(A)</span>:</span>
+    n = len(A)
+    <span class="hljs-comment"># m = len(A[0])</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n):
+        print(A[i])
+    print()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Board</span>:</span>
+    B = <span class="hljs-keyword">None</span> <span class="hljs-comment">#board</span>
+    H = <span class="hljs-keyword">None</span> <span class="hljs-comment">#hint</span>
+    n, m, nmine = <span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>, <span class="hljs-keyword">None</span>
+    
+    <span class="hljs-comment">#@staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inrange</span><span class="hljs-params">(self, i, j)</span>:</span>
+        <span class="hljs-comment"># print(i, j)</span>
+        <span class="hljs-keyword">return</span> i &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> i &lt; self.n <span class="hljs-keyword">and</span> j &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> j &lt; self.m
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n, m, nmine)</span>:</span> <span class="hljs-comment"># return a list of starting hints</span>
+        self.n = n
+        self.m = m
+        self.nmine = nmine
+        all_coordinate = [(i, j) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(self.m) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.n)]
+        <span class="hljs-comment"># print(all_coordinate)</span>
+        mine_pos = random.sample(all_coordinate, nmine)
+        self.B = [[<span class="hljs-number">0</span>]*self.m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.n)]
+        self.H = [[<span class="hljs-number">0</span>]*self.m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.n)]
+        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> mine_pos:
+            self.B[p[<span class="hljs-number">0</span>]][p[<span class="hljs-number">1</span>]] = <span class="hljs-number">1</span>
+        <span class="hljs-comment">#printA(self.B)</span>
+        <span class="hljs-keyword">for</span> i, j <span class="hljs-keyword">in</span> itertools.product(range(self.n), range(self.m)):
+            <span class="hljs-keyword">if</span>(self.B[i][j] == <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">for</span> dx, dy <span class="hljs-keyword">in</span> itertools.product(range(<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>), range(<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)):
+                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">not</span> (dx==<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> dy==<span class="hljs-number">0</span>) <span class="hljs-keyword">and</span> self.inrange(i+dx, j+dy)):
+                    self.H[i][j] += self.B[i+dx][j+dy]
+        <span class="hljs-comment">#printA(self.H)</span>
+        <span class="hljs-keyword">return</span>
+    
+    <span class="hljs-comment"># for printing</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        n = self.n
+        m = self.m
+        ret = <span class="hljs-string">""</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(n):
+            ret += str(self.B[i])
+            ret += <span class="hljs-string">"\n"</span>
+        <span class="hljs-keyword">return</span> ret
+            
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_start</span><span class="hljs-params">(self, nstart = None)</span>:</span>
+        <span class="hljs-comment"># get starting hints(starting safe positions)</span>
+        <span class="hljs-keyword">if</span>(nstart == <span class="hljs-keyword">None</span>):
+            nstart = int(np.sqrt(self.n*self.m))
+        hint_coordinate = list(filter(<span class="hljs-keyword">lambda</span> x: self.B[x[<span class="hljs-number">0</span>]][x[<span class="hljs-number">1</span>]]==<span class="hljs-number">0</span> ,[(i, j) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(self.m) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(self.n)]))
+        <span class="hljs-comment"># printA(self.B)</span>
+        <span class="hljs-comment"># print(hint_coordinate)</span>
+        start_pos = random.sample(hint_coordinate, nstart)
+        <span class="hljs-comment">#start = [[-1]*self.m for i in range(self.n)]</span>
+        <span class="hljs-comment">#for p in start_pos:</span>
+        <span class="hljs-comment">#    start[p[0]][p[1]] = self.H[p[0]][p[1]]</span>
+        <span class="hljs-keyword">return</span> start_pos
+        
+    <span class="hljs-comment"># query</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">q</span><span class="hljs-params">(self, i, j)</span>:</span> <span class="hljs-comment">#return -1 if is mine, return number if is hint</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span> <span class="hljs-keyword">if</span> self.B[i][j] == <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> self.H[i][j]
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">q</span><span class="hljs-params">(self, p)</span>:</span> <span class="hljs-comment">#return -1 if is mine, return number if is hint</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span> <span class="hljs-keyword">if</span> self.B[p[<span class="hljs-number">0</span>]][p[<span class="hljs-number">1</span>]] == <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> self.H[p[<span class="hljs-number">0</span>]][p[<span class="hljs-number">1</span>]]
+                                            
+    
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VAR</span>:</span>
+    pos = <span class="hljs-keyword">None</span>
+    T = <span class="hljs-keyword">None</span> <span class="hljs-comment"># true / false, Mine/ Safe</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, pos, T)</span>:</span>
+        self.pos = pos
+        self.T = T
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> self.T :
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"M(%d,%d)"</span>%(self.pos[<span class="hljs-number">0</span>], self.pos[<span class="hljs-number">1</span>])
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"S(%d,%d)"</span>%(self.pos[<span class="hljs-number">0</span>], self.pos[<span class="hljs-number">1</span>])
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__eq__</span><span class="hljs-params">(self, rhs)</span>:</span>
+        <span class="hljs-keyword">if</span>(isinstance(rhs, VAR)):
+            <span class="hljs-keyword">return</span> (self.pos == rhs.pos <span class="hljs-keyword">and</span> self.T == rhs.T)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-comment"># collision? </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__hash__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> hash(self.pos[<span class="hljs-number">0</span>]*<span class="hljs-number">1000</span>*<span class="hljs-number">10</span>+self.pos[<span class="hljs-number">1</span>]*<span class="hljs-number">10</span>+self.T)
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">neg</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> VAR(self.pos, <span class="hljs-keyword">not</span> self.T)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CLS</span>:</span> <span class="hljs-comment"># Or of Variables</span>
+    <span class="hljs-comment"># use set of variable is enough</span>
+    <span class="hljs-comment"># to insert into KB need to be imutable(frozenset)</span>
+    <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-comment"># Treat as an ADT(abstact data structure) that support desired op.s</span>
+<span class="hljs-comment"># store kb and kb0</span>
+<span class="hljs-comment"># kb: And of Variables</span>
+<span class="hljs-comment"># kb0: inferenced ground truth</span>
+<span class="hljs-comment"># fcls is inmmutable(frozen set)</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KB</span>:</span>
+    kb = set()  <span class="hljs-comment"># set of cls(frozenset of variable)</span>
+    kb0 = set() <span class="hljs-comment"># set of variable</span>
+    max_kb = <span class="hljs-keyword">None</span>
+    cls_inserted = <span class="hljs-keyword">None</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.kb = set()
+        self.kb0 = set()
+        self.max_kb = <span class="hljs-number">0</span>
+        self.cls_inserted = <span class="hljs-number">0</span>
+    
+    <span class="hljs-comment"># return kb0's size</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">atom</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> len(self.kb0)
+    <span class="hljs-comment"># return positive kb0's size</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pos_atom</span><span class="hljs-params">(self)</span>:</span>
+        ret = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> self.kb0: 
+            ret += var.T
+        <span class="hljs-keyword">return</span> ret
+    
+    <span class="hljs-comment"># return a singleton cls, or None </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_single</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> fcls <span class="hljs-keyword">in</span> self.kb:
+            <span class="hljs-keyword">if</span> len(fcls) == <span class="hljs-number">1</span>:
+                <span class="hljs-keyword">return</span> next(iter(fcls))
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+    
+    <span class="hljs-comment"># add to kb0 </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_kb0</span><span class="hljs-params">(self, var)</span>:</span>
+        <span class="hljs-keyword">assert</span>(var.neg() <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.kb0)
+        self.kb0.add(var) <span class="hljs-comment"># kb0 is a set</span>
+        <span class="hljs-keyword">return</span>
+    
+    <span class="hljs-comment"># remove cls from kb</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">remove</span><span class="hljs-params">(self, fcls)</span>:</span>
+        <span class="hljs-keyword">assert</span>(fcls <span class="hljs-keyword">in</span> self.kb)
+        self.kb.remove(fcls)
+        <span class="hljs-keyword">return</span>
+    
+    <span class="hljs-comment"># remove cls and add to kb0 + resolution</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transfer_to_kb0</span><span class="hljs-params">(self, var)</span>:</span>
+        self.remove(frozenset([var]))
+        self.add_kb0(var)
+        <span class="hljs-comment"># resolution</span>
+        new_kb = []
+        <span class="hljs-keyword">for</span> fcls <span class="hljs-keyword">in</span> self.kb:
+            <span class="hljs-keyword">if</span> var <span class="hljs-keyword">in</span> fcls:
+                <span class="hljs-comment">#tautology</span>
+                <span class="hljs-keyword">continue</span>
+            <span class="hljs-keyword">elif</span> var.neg() <span class="hljs-keyword">in</span> fcls:
+                cls = set(fcls)
+                cls.remove(var.neg())
+                fcls = frozenset(cls)
+                <span class="hljs-keyword">assert</span>(len(fcls) != <span class="hljs-number">0</span>)
+                new_kb.append(fcls)
+            <span class="hljs-keyword">else</span>:
+                new_kb.append(fcls)
+        self.kb = set(new_kb)
+        <span class="hljs-keyword">return</span>
+            
+    
+    <span class="hljs-comment"># insert cls to kb</span>
+    <span class="hljs-comment"># resolution with kb0 and check is not supperset(or eq) to other</span>
+    <span class="hljs-comment"># assert not negative tautology</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span><span class="hljs-params">(self, cls, CHECKSUB = CHECK_SUB_ON_INSERT)</span>:</span>
+        <span class="hljs-comment"># resolutions with kb0</span>
+        <span class="hljs-keyword">if</span>(isinstance(cls, frozenset)):
+            cls = set(cls)
+        <span class="hljs-keyword">for</span> truth <span class="hljs-keyword">in</span> self.kb0:
+            <span class="hljs-keyword">if</span> truth <span class="hljs-keyword">in</span> cls:
+                <span class="hljs-comment"># tautology</span>
+                <span class="hljs-keyword">return</span> 
+            <span class="hljs-keyword">elif</span> truth.neg() <span class="hljs-keyword">in</span> self.kb0:
+                <span class="hljs-comment"># this part is never True</span>
+                cls.remove(truth) <span class="hljs-comment"># error handling should be redundunt</span>
+        
+        <span class="hljs-comment"># should not be negative tautology</span>
+        <span class="hljs-keyword">assert</span>(len(cls) != <span class="hljs-number">0</span>)
+        
+        <span class="hljs-comment"># check not supper set or equal to other this may be too much cost</span>
+        flag = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">if</span>(CHECKSUB):
+            <span class="hljs-keyword">for</span> fcls2 <span class="hljs-keyword">in</span> self.kb:
+                <span class="hljs-keyword">if</span>(fcls2.issubset(cls)):
+                    flag = <span class="hljs-keyword">False</span>
+                    <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">if</span> flag:
+            fcls = frozenset(cls)
+            self.kb.add(fcls)
+            self.cls_inserted += <span class="hljs-number">1</span>
+            self.max_kb = max(self.max_kb, len(self.kb))
+        <span class="hljs-keyword">return</span>
+    
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-comment"># passing cls2, cls are immutable</span>
+    <span class="hljs-comment"># return set</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_match</span><span class="hljs-params">(cls2, cls)</span>:</span>
+        <span class="hljs-keyword">if</span>(cls.issubset(cls2)):
+            <span class="hljs-keyword">return</span> cls
+        <span class="hljs-keyword">elif</span>(cls2.issubset(cls)):
+            <span class="hljs-keyword">return</span> cls2
+        <span class="hljs-comment">#check complements</span>
+        comp = []
+        <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> cls2:
+            <span class="hljs-keyword">if</span>(var.neg() <span class="hljs-keyword">in</span> cls):
+                comp.append(var)
+                
+        <span class="hljs-keyword">if</span>(len(comp) &gt; <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">elif</span> (len(comp) == <span class="hljs-number">1</span>):
+            var = comp[<span class="hljs-number">0</span>]
+            resolution_cls = set(cls.union(cls2))
+            resolution_cls.remove(var)
+            resolution_cls.remove(var.neg())
+            <span class="hljs-keyword">return</span> resolution_cls
+        <span class="hljs-keyword">else</span> :
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+        
+    <span class="hljs-comment"># do pair wise match for cls with size 2</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">match</span><span class="hljs-params">(self)</span>:</span>
+        self.deal_sub()
+        kb2 = [fcls <span class="hljs-keyword">for</span> fcls <span class="hljs-keyword">in</span> self.kb <span class="hljs-keyword">if</span> len(fcls) &lt;= <span class="hljs-number">2</span>]
+        
+        match_kb = []
+        <span class="hljs-keyword">for</span> fcls2 <span class="hljs-keyword">in</span> kb2:
+            <span class="hljs-keyword">for</span> fcls <span class="hljs-keyword">in</span> self.kb:
+                m = KB.get_match(fcls2, fcls)
+                <span class="hljs-keyword">if</span>(m != <span class="hljs-keyword">None</span>):
+                    match_kb.append(m)
+        <span class="hljs-keyword">for</span> cls <span class="hljs-keyword">in</span> match_kb:
+            self.insert(cls)
+        <span class="hljs-keyword">return</span>
+    
+    <span class="hljs-comment"># check pairwise subsumption and remove the less restricting ones</span>
+    <span class="hljs-comment"># no dup in set</span>
+    <span class="hljs-comment"># O(n^2)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deal_sub</span><span class="hljs-params">(self)</span>:</span>
+        new_kb = []
+        n = len(self.kb)
+        <span class="hljs-keyword">for</span> fcls1 <span class="hljs-keyword">in</span> self.kb:
+            has_sub = <span class="hljs-keyword">False</span>
+            <span class="hljs-keyword">for</span> fcls2 <span class="hljs-keyword">in</span> self.kb:
+                <span class="hljs-keyword">if</span>(fcls1 != fcls2 <span class="hljs-keyword">and</span>  fcls2.issubset(fcls1)):
+                    has_sub = <span class="hljs-keyword">True</span>
+            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">not</span> has_sub):
+                new_kb.append(fcls1)
+        self.kb = set(new_kb)
+        <span class="hljs-keyword">return</span>
+    
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogicAgent</span>:</span>
+    b = <span class="hljs-keyword">None</span> <span class="hljs-comment"># game board in agent's hand</span>
+    B = <span class="hljs-keyword">None</span> <span class="hljs-comment"># solution, not used, will declare in solve as answer and return</span>
+    kb = <span class="hljs-keyword">None</span> <span class="hljs-comment"># current kowledge, include kb0(marked)</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solve</span><span class="hljs-params">(self, b, MATCH_ITER_LIMIT = MATCH_ITER_LIMIT, PRINT_FAIL = True, PRINT=False)</span>:</span>
+        <span class="hljs-comment"># initializing solver</span>
+        self.b = b <span class="hljs-comment"># game engine</span>
+        self.kb = KB() <span class="hljs-comment"># KB</span>
+        B = [[<span class="hljs-number">-1</span>]*b.m <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(b.n)]<span class="hljs-comment"># answer, -1 not decided, 0 no mine, 1 mine</span>
+        kb = self.kb <span class="hljs-comment"># sugar</span>
+        <span class="hljs-comment">#b = self.b</span>
+        
+        <span class="hljs-comment"># get init positions</span>
+        start_pos = self.b.get_start()
+        <span class="hljs-comment"># add inital safe position to KB</span>
+        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> start_pos:
+            kb.insert({VAR(p, <span class="hljs-number">0</span>)})
+        
+        <span class="hljs-comment"># start solving</span>
+        iteration = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):
+            <span class="hljs-comment"># is done</span>
+            <span class="hljs-keyword">if</span>(kb.atom() == b.n*b.m):
+                <span class="hljs-keyword">return</span> B, (kb.atom(), b.n*b.m)
+            
+            <span class="hljs-keyword">if</span> PRINT:
+                iteration += <span class="hljs-number">1</span>
+                print(<span class="hljs-string">"ith iteration, i = "</span>, iteration)
+                printA(B)
+                print(b)
+            
+            <span class="hljs-comment"># check whether add global constraint now</span>
+            
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comb</span><span class="hljs-params">(n, r)</span>:</span>
+                <span class="hljs-keyword">return</span> math.factorial(n) // math.factorial(r) // math.factorial(n-r)
+                
+            <span class="hljs-keyword">if</span>(comb(b.n*b.m - kb.atom(), b.nmine - kb.pos_atom()) &lt; GLOBAL_LIMIT):
+                undecided = []
+                V0 = []
+                V1 = []
+                <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(b.n):
+                    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(b.m):
+                        <span class="hljs-keyword">if</span>(B[i][j] == <span class="hljs-number">-1</span>):
+                            undecided.append((i,j))
+                            V0.append(VAR((i,j), <span class="hljs-number">0</span>))
+                            V1.append(VAR((i,j), <span class="hljs-number">1</span>))
+                <span class="hljs-keyword">assert</span>(b.n*b.m - kb.atom() == len(V0))
+                m = len(V0)
+                n = b.nmine - kb.pos_atom()
+                <span class="hljs-keyword">for</span> cmb <span class="hljs-keyword">in</span> itertools.combinations(V1, m-n+<span class="hljs-number">1</span>):
+                    kb.insert(set(cmb))
+                <span class="hljs-keyword">for</span> cmb <span class="hljs-keyword">in</span> itertools.combinations(V0, n+<span class="hljs-number">1</span>):
+                    kb.insert(set(cmb))
+        
+            <span class="hljs-comment"># get singleton</span>
+            cnt = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">while</span>(kb.get_single() == <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> cnt &lt; MATCH_ITER_LIMIT):
+                kb.match()
+                cnt += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span>(kb.get_single() == <span class="hljs-keyword">None</span>): <span class="hljs-comment"># no any sigleton after matching limit</span>
+                <span class="hljs-keyword">if</span> PRINT_FAIL:
+                    print(<span class="hljs-string">"Matching Limit Exceed!"</span>)
+                <span class="hljs-keyword">return</span> B, (kb.atom(), b.n*b.m)
+                
+            <span class="hljs-comment">## deal with sigleton</span>
+            a = kb.get_single() <span class="hljs-comment"># a singleton cls's only var</span>
+            hint = b.q(a.pos)
+            <span class="hljs-keyword">assert</span>((hint == <span class="hljs-number">-1</span> <span class="hljs-keyword">and</span> a.T == <span class="hljs-number">1</span>) <span class="hljs-keyword">or</span> (hint != <span class="hljs-number">-1</span> <span class="hljs-keyword">and</span> a.T == <span class="hljs-number">0</span>))
+            <span class="hljs-comment">## common</span>
+            <span class="hljs-comment"># 1. move to kb0</span>
+            <span class="hljs-comment"># 2. matching of new kb0 to remainning cls</span>
+            i = a.pos[<span class="hljs-number">0</span>]
+            j = a.pos[<span class="hljs-number">1</span>]
+            kb.transfer_to_kb0(a)
+            B[i][j] = a.T
+            <span class="hljs-keyword">if</span>(a.T == <span class="hljs-number">0</span>): <span class="hljs-comment"># is safe and with hint res</span>
+                i = a.pos[<span class="hljs-number">0</span>]
+                j = a.pos[<span class="hljs-number">1</span>]
+                <span class="hljs-comment"># undecided = []</span>
+                V0 = []
+                V1 = []
+                n = hint <span class="hljs-comment"># should - positive B</span>
+                <span class="hljs-keyword">for</span> dx, dy <span class="hljs-keyword">in</span> itertools.product(range(<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>), range(<span class="hljs-number">-1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>)):
+                    nx, ny = i+dx, j+dy
+                    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">not</span> (dx==<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> dy==<span class="hljs-number">0</span>) <span class="hljs-keyword">and</span> b.inrange(nx, ny)):
+                        <span class="hljs-keyword">if</span>(B[nx][ny] == <span class="hljs-number">-1</span>):
+                            <span class="hljs-comment"># undecided.append((nx, ny))</span>
+                            V0.append(VAR((nx,ny), <span class="hljs-number">0</span>))
+                            V1.append(VAR((nx,ny), <span class="hljs-number">1</span>))
+                        <span class="hljs-keyword">if</span>(B[nx][ny] == <span class="hljs-number">1</span>):
+                            n -= <span class="hljs-number">1</span>
+                m = len(V0)
+                <span class="hljs-comment"># clause type, C m choose n, now at i, used array</span>
+                <span class="hljs-comment"># use iter tool for higher performance</span>
+                <span class="hljs-keyword">for</span> cmb <span class="hljs-keyword">in</span> itertools.combinations(V1, m-n+<span class="hljs-number">1</span>):
+                    kb.insert(set(cmb))
+                <span class="hljs-keyword">for</span> cmb <span class="hljs-keyword">in</span> itertools.combinations(V0, n+<span class="hljs-number">1</span>):
+                    kb.insert(set(cmb))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exp</span><span class="hljs-params">(n, m, nmine, T=<span class="hljs-number">100</span>, PRINT=<span class="hljs-number">100</span>)</span>:</span>
+    <span class="hljs-keyword">import</span> time
+    grid_succ = <span class="hljs-number">0</span>
+    grid_norm = <span class="hljs-number">0</span>
+    all_succ = <span class="hljs-number">0</span>
+    all_norm = <span class="hljs-number">0</span>
+    max_kb = <span class="hljs-number">0.0</span>
+    inserted_cls = <span class="hljs-number">0.0</span>
+    elasped_time = <span class="hljs-number">0.0</span>
+    
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(T):
+        <span class="hljs-comment"># init</span>
+        b = Board(n, m, nmine)
+        agent = LogicAgent()
+        
+        <span class="hljs-comment">#timing and solving</span>
+        start_time = time.time() 
+        B, ri = agent.solve(b)
+        end_time = time.time()
+        
+        <span class="hljs-comment">#statistics</span>
+        elasped_time += end_time - start_time
+        inserted_cls += agent.kb.cls_inserted
+        max_kb += agent.kb.max_kb
+        
+        grid_succ += ri[<span class="hljs-number">0</span>]
+        grid_norm += ri[<span class="hljs-number">1</span>]
+        all_succ  += ri[<span class="hljs-number">0</span>]==ri[<span class="hljs-number">1</span>]
+        all_norm  += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(i%PRINT == <span class="hljs-number">0</span>):
+            print(<span class="hljs-string">"inserted cls"</span>, agent.kb.cls_inserted)
+            print(<span class="hljs-string">"maximum size of kb"</span>, agent.kb.max_kb)
+            print(<span class="hljs-string">"time spent"</span>, end_time - start_time)
+            print(<span class="hljs-string">"solution"</span>)
+            printA(B)
+            print(<span class="hljs-string">"task"</span>)
+            print(b)
+    <span class="hljs-keyword">return</span> (grid_succ, grid_norm), (all_succ,all_norm), (elasped_time/T, inserted_cls/T, max_kb/T)
+
+
+GLOBAL_LIMIT = <span class="hljs-number">5000</span>
+exp(<span class="hljs-number">32</span>, <span class="hljs-number">16</span>, <span class="hljs-number">99</span>, <span class="hljs-number">10</span>, PRINT=<span class="hljs-number">10</span>)
+
+</code></pre><h3 id="exp_densitypy" style=""><a class="anchor hidden-xs" href="#exp_densitypy" title="exp_densitypy"><span class="octicon octicon-link"></span></a>exp_density.py</h3><ul>
+<li>paste only plotting part for simplification</li>
+</ul><pre><code class="=python hljs"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-comment"># when executing I am using copy of ipython notebook</span>
+<span class="hljs-comment"># I paste only plotting part for simplification </span>
+<span class="hljs-keyword">from</span> lab3_2.py <span class="hljs-keyword">import</span> *
+
+d_exp = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">8</span>):
+    expi = exp(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>, <span class="hljs-number">5</span>*i, <span class="hljs-number">33</span>, <span class="hljs-keyword">False</span>)
+    d_exp.append(expi)
+    print(i, <span class="hljs-string">"done"</span>)
+
+r1 = []
+r2 = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">8</span>):
+    r1.append(d_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]/d_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">1</span>])
+    r2.append(d_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]/d_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">1</span>])
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">0</span>,<span class="hljs-number">8</span>)))*<span class="hljs-number">5</span>/<span class="hljs-number">81</span>, r1)
+plt.title(<span class="hljs-string">'grid winrate - density'</span>)
+plt.xlabel(<span class="hljs-string">'density'</span>)
+plt.ylabel(<span class="hljs-string">'(grid) winrate'</span>)
+plt.show()
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">0</span>,<span class="hljs-number">8</span>)))*<span class="hljs-number">5</span>/<span class="hljs-number">81</span>, r2)
+plt.title(<span class="hljs-string">'game winrate - density'</span>)
+plt.xlabel(<span class="hljs-string">'density'</span>)
+plt.ylabel(<span class="hljs-string">'(game) winrate'</span>)
+plt.show()
+
+</code></pre><h3 id="exp_hintpy" style=""><a class="anchor hidden-xs" href="#exp_hintpy" title="exp_hintpy"><span class="octicon octicon-link"></span></a>exp_hint.py</h3><ul>
+<li>paste only plotting part for simplification</li>
+</ul><pre><code class="=python3 hljs">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# when executing <span class="hljs-symbol">I</span> am using copy of ipython notebook
+# <span class="hljs-symbol">I</span> paste only plotting part for simplification
+# there is actually change that <span class="hljs-symbol">NSTART</span> is used for number of  starting hints in lab3_2.py
+from lab3_2.py import *
+
+d_exp = []
+for i in range(<span class="hljs-number">1</span>, <span class="hljs-number">9</span>):
+    <span class="hljs-symbol">NSTART</span> = i*<span class="hljs-number">3</span>
+    expi = exp(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>, <span class="hljs-number">15</span>, <span class="hljs-number">33</span>, <span class="hljs-symbol">False</span>)
+    d_exp.append(expi)
+    print(i, <span class="hljs-string">"done"</span>)
+    
+r1 = []
+r2 = []
+for i in range(<span class="hljs-number">8</span>):
+    r1.append(d_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]/d_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">1</span>])
+    r2.append(d_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]/d_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">1</span>])
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">1</span>,<span class="hljs-number">9</span>)))*<span class="hljs-number">3</span>, r1)
+plt.title(<span class="hljs-string">'grid winrate - number of hint'</span>)
+plt.xlabel(<span class="hljs-string">'hint'</span>)
+plt.ylabel(<span class="hljs-string">'(grid) winrate'</span>)
+plt.show()
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">1</span>,<span class="hljs-number">9</span>)))*<span class="hljs-number">3</span>, r2)
+plt.title(<span class="hljs-string">'game winrate - number of hint'</span>)
+plt.xlabel(<span class="hljs-string">'hint'</span>)
+plt.ylabel(<span class="hljs-string">'(game) winrate'</span>)
+plt.show()
+
+# redo for bigger size
+
+d2_exp = []
+for i in range(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>):
+    <span class="hljs-symbol">NSTART</span> = i*<span class="hljs-number">5</span>
+    expi = exp(<span class="hljs-number">16</span>, <span class="hljs-number">16</span>, <span class="hljs-number">50</span>, <span class="hljs-number">33</span>, <span class="hljs-symbol">False</span>)
+    d2_exp.append(expi)
+    print(i, <span class="hljs-string">"done"</span>)
+
+r1 = []
+r2 = []
+for i in range(<span class="hljs-number">9</span>):
+    r1.append(d2_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]/d2_exp[i][<span class="hljs-number">0</span>][<span class="hljs-number">1</span>])
+    r2.append(d2_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]/d2_exp[i][<span class="hljs-number">1</span>][<span class="hljs-number">1</span>])
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>)))*<span class="hljs-number">5</span>, r1)
+plt.title(<span class="hljs-string">'grid winrate - number of hint'</span>)
+plt.xlabel(<span class="hljs-string">'hint'</span>)
+plt.ylabel(<span class="hljs-string">'(grid) winrate'</span>)
+plt.show()
+
+plt.plot(np.asarray(list(range(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>)))*<span class="hljs-number">5</span>, r2)
+plt.title(<span class="hljs-string">'game winrate - number of hint'</span>)
+plt.xlabel(<span class="hljs-string">'hint'</span>)
+plt.ylabel(<span class="hljs-string">'(game) winrate'</span>)
+plt.show()
+
+</code></pre></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Intro-to-AI-lab3---MineSweeper-with-Logic-Agent" title="Intro to AI lab3 - MineSweeper with Logic Agent">Intro to AI lab3 - MineSweeper with Logic Agent</a><ul class="nav">
+<li class=""><a href="#Author-Information" title="Author Information">Author Information</a></li>
+<li><a href="#Task-description" title="Task description">Task description</a></li>
+<li><a href="#Proposed-Algorithm" title="Proposed Algorithm">Proposed Algorithm</a></li>
+<li><a href="#Implementation" title="Implementation">Implementation</a><ul class="nav">
+<li><a href="#General" title="General">General</a></li>
+<li><a href="#Game-control-module" title="Game control module">Game control module</a></li>
+<li><a href="#OOP-design-logic-inference-part" title="OOP design (logic inference part)">OOP design (logic inference part)</a></li>
+<li><a href="#logic-agent" title="logic agent">logic agent</a></li>
+</ul>
+</li>
+<li><a href="#Experiment-Results-and-Discussion" title="Experiment Results and Discussion">Experiment Results and Discussion</a><ul class="nav">
+<li><a href="#Evaluation-Criterion" title="Evaluation Criterion">Evaluation Criterion</a></li>
+<li><a href="#Winrate--Board-Size" title="Winrate / Board Size">Winrate / Board Size</a></li>
+<li><a href="#Resources-Spent--Board-Size" title="Resources Spent / Board Size">Resources Spent / Board Size</a></li>
+<li><a href="#Winrate--Mine-Density" title="Winrate / Mine Density">Winrate / Mine Density</a></li>
+<li><a href="#Winrate--Number-of-Starting-Hints" title="Winrate / Number of Starting Hints">Winrate / Number of Starting Hints</a></li>
+</ul>
+</li>
+<li><a href="#Bonus-Discussion" title="Bonus Discussion">Bonus Discussion</a><ul class="nav">
+<li><a href="#How-to-apply-FOL" title="How to apply FOL">How to apply FOL</a></li>
+<li><a href="#Forwardbackward-chainning-applicable" title="Forward/backward chainning applicable?">Forward/backward chainning applicable?</a></li>
+<li><a href="#How-to-improve-winrate-by-guessinng-when-stuck" title="How to improve winrate by guessinng when stuck">How to improve winrate by guessinng when stuck</a></li>
+<li><a href="#How-to-modify-Assignment-2-to-solve-iteractive-version" title="How to modify Assignment 2 to solve iteractive version">How to modify Assignment 2 to solve iteractive version</a></li>
+</ul>
+</li>
+<li><a href="#Conclusion" title="Conclusion">Conclusion</a></li>
+<li><a href="#Appendix-A---Code" title="Appendix A - Code">Appendix A - Code</a><ul class="nav">
+<li><a href="#lab3_2py" title="lab3_2.py">lab3_2.py</a></li>
+<li><a href="#exp_densitypy" title="exp_density.py">exp_density.py</a></li>
+<li><a href="#exp_hintpy" title="exp_hint.py">exp_hint.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Intro-to-AI-lab3---MineSweeper-with-Logic-Agent" title="Intro to AI lab3 - MineSweeper with Logic Agent">Intro to AI lab3 - MineSweeper with Logic Agent</a><ul class="nav">
+<li class=""><a href="#Author-Information" title="Author Information">Author Information</a></li>
+<li><a href="#Task-description" title="Task description">Task description</a></li>
+<li><a href="#Proposed-Algorithm" title="Proposed Algorithm">Proposed Algorithm</a></li>
+<li class=""><a href="#Implementation" title="Implementation">Implementation</a><ul class="nav">
+<li><a href="#General" title="General">General</a></li>
+<li><a href="#Game-control-module" title="Game control module">Game control module</a></li>
+<li class=""><a href="#OOP-design-logic-inference-part" title="OOP design (logic inference part)">OOP design (logic inference part)</a></li>
+<li><a href="#logic-agent" title="logic agent">logic agent</a></li>
+</ul>
+</li>
+<li class=""><a href="#Experiment-Results-and-Discussion" title="Experiment Results and Discussion">Experiment Results and Discussion</a><ul class="nav">
+<li class=""><a href="#Evaluation-Criterion" title="Evaluation Criterion">Evaluation Criterion</a></li>
+<li class=""><a href="#Winrate--Board-Size" title="Winrate / Board Size">Winrate / Board Size</a></li>
+<li class=""><a href="#Resources-Spent--Board-Size" title="Resources Spent / Board Size">Resources Spent / Board Size</a></li>
+<li class=""><a href="#Winrate--Mine-Density" title="Winrate / Mine Density">Winrate / Mine Density</a></li>
+<li class=""><a href="#Winrate--Number-of-Starting-Hints" title="Winrate / Number of Starting Hints">Winrate / Number of Starting Hints</a></li>
+</ul>
+</li>
+<li class=""><a href="#Bonus-Discussion" title="Bonus Discussion">Bonus Discussion</a><ul class="nav">
+<li class=""><a href="#How-to-apply-FOL" title="How to apply FOL">How to apply FOL</a></li>
+<li class=""><a href="#Forwardbackward-chainning-applicable" title="Forward/backward chainning applicable?">Forward/backward chainning applicable?</a></li>
+<li class=""><a href="#How-to-improve-winrate-by-guessinng-when-stuck" title="How to improve winrate by guessinng when stuck">How to improve winrate by guessinng when stuck</a></li>
+<li><a href="#How-to-modify-Assignment-2-to-solve-iteractive-version" title="How to modify Assignment 2 to solve iteractive version">How to modify Assignment 2 to solve iteractive version</a></li>
+</ul>
+</li>
+<li class=""><a href="#Conclusion" title="Conclusion">Conclusion</a></li>
+<li class=""><a href="#Appendix-A---Code" title="Appendix A - Code">Appendix A - Code</a><ul class="nav">
+<li class=""><a href="#lab3_2py" title="lab3_2.py">lab3_2.py</a></li>
+<li class=""><a href="#exp_densitypy" title="exp_density.py">exp_density.py</a></li>
+<li class=""><a href="#exp_hintpy" title="exp_hint.py">exp_hint.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

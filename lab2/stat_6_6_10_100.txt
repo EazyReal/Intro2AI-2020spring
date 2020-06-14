@@ -1,0 +1,12 @@
+MAX_pushed: 56
+MID_pushed: 56
+AVG_pushed: 56.46
+MAX_popped: 11
+MID_popped: 11
+AVG_popped: 11.0
+MAX_cut: 1792
+MID_cut: 512
+AVG_cut: 1131.52
+MAX_time_elasped: 0.0371088981628418
+MID_time_elasped: 0.03507494926452637
+AVG_time_elasped: 0.03700472593307495
