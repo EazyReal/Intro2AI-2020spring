@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-//#define MAC //if define this, mac testing
+#define MAC //if define this, mac testing
 //#define TESTBOARD //if def this, will enter interactive board testing first
 
 /*
@@ -15,13 +14,6 @@ cacls .\Sample1.exe /g everyone:f
 #include "STcpClient.h"
 #endif
 
-=======
-
-//dependency
-//#include "STcpClient.h"
-//#include <stdlib.h>
-//#include <iostream>
->>>>>>> 4aac08adc77bf2b8e8ee4c63a7cf820daf760683
 #include "mcts.h"
 
 /*
@@ -35,11 +27,8 @@ API of TA's program
     Step : vector, Step = {r, c}
             r, c 表示要下棋子的座標位置 (row, column) (zero-base)
 */
-<<<<<<< HEAD
 
 #ifdef MAC
-=======
->>>>>>> 4aac08adc77bf2b8e8ee4c63a7cf820daf760683
 bool GetBoard(int idpackage, VVI&b, bool &is_black)
 {
 	is_black = 1;
@@ -59,11 +48,7 @@ void SendStep(int idpackage, vector<int> step)
 	cout << step[0] << " " << step[1] << endl;
 	return;
 }
-<<<<<<< HEAD
 #endif
-=======
-
->>>>>>> 4aac08adc77bf2b8e8ee4c63a7cf820daf760683
 
 std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
@@ -79,32 +64,18 @@ int main() {
 	std::vector<int> step;
 	srand(time(NULL));
 
-<<<<<<< HEAD
 #ifdef TESTBOARD
 	board bo;
 	bo.simulate(BLACK);
 	while(1)
-=======
-#define TESTBOARD
-#ifdef TESTBOARD
-	//board bo;
-	//bo.simulate(BLACK);
-	/*while(1)
->>>>>>> 4aac08adc77bf2b8e8ee4c63a7cf820daf760683
 	{
 		cout << "enter x y (0-indexed) and color to move: \n";
 		int x, y, c;
 		cin >> x >> y >> c;
 		bo.add(ID(x,y), c);
 		bo.print();
-<<<<<<< HEAD
 	}
 	VVI b;
-=======
-	}*/
-	//VVI b;
-
->>>>>>> 4aac08adc77bf2b8e8ee4c63a7cf820daf760683
 #endif
 	
 	bool is_black;
