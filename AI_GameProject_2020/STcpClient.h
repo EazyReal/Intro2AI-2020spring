@@ -167,4 +167,3 @@ void SendStep(int id_package, std::vector<int>& Step) {
 		_ReconnectToServer();
 	}
 }
-

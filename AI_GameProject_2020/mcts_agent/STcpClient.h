@@ -1,7 +1,6 @@
-﻿﻿//
+﻿//
 //	Copyright © 2019 by Phillip Chang
 //
-// see idTeam !!! , 41
 #pragma once
 
 #include <winsock2.h>

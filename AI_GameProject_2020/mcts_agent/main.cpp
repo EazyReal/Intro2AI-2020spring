@@ -1,5 +1,6 @@
-#define MAC //if define this, mac testing
+//#define MAC //if define this, mac testing
 //#define TESTBOARD //if def this, will enter interactive board testing first
+#define LOG
 
 /*
  g++ -std=c++14  -o win.exe *.cpp -lWs2_32
@@ -83,6 +84,9 @@ int main() {
 		if (GetBoard(id_package, b, is_black))
 			break;
 		step = GetStep(b, is_black);
+#ifdef LOG
+		cerr << "step: " << step[0] << " " << step[1] << endl;
+#endif
 		SendStep(id_package, step);
 	}
 }
