@@ -1,8 +1,19 @@
+#define MAC //if define this, mac testing
+//#define TESTBOARD //if def this, will enter interactive board testing first
+
+/*
+ g++ -std=c++14  -o win.exe *.cpp -lWs2_32
+ C:\Windows\servicing\LCU\Package_for_RollupFix~31bf3856ad364e35~amd64~~17763.1282.1.9\wow64_microsoft-windows-w..nfrastructure-ws232_31bf3856ad364e35_10.0.17763.771_none_71b07ea3887c9605\r
+
+cacls .\Sample1.exe /g everyone:f
+*/
+
 
 //dependency
-//#include "STcpClient.h"
-//#include <stdlib.h>
-//#include <iostream>
+#ifndef MAC
+#include "STcpClient.h"
+#endif
+
 #include "mcts.h"
 
 /*
@@ -16,6 +27,8 @@ API of TA's program
     Step : vector, Step = {r, c}
             r, c 表示要下棋子的座標位置 (row, column) (zero-base)
 */
+
+#ifdef MAC
 bool GetBoard(int idpackage, VVI&b, bool &is_black)
 {
 	is_black = 1;
@@ -35,7 +48,7 @@ void SendStep(int idpackage, vector<int> step)
 	cout << step[0] << " " << step[1] << endl;
 	return;
 }
-
+#endif
 
 std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
@@ -51,20 +64,18 @@ int main() {
 	std::vector<int> step;
 	srand(time(NULL));
 
-#define TESTBOARD
 #ifdef TESTBOARD
-	//board bo;
-	//bo.simulate(BLACK);
-	/*while(1)
+	board bo;
+	bo.simulate(BLACK);
+	while(1)
 	{
 		cout << "enter x y (0-indexed) and color to move: \n";
 		int x, y, c;
 		cin >> x >> y >> c;
 		bo.add(ID(x,y), c);
 		bo.print();
-	}*/
-	//VVI b;
-
+	}
+	VVI b;
 #endif
 	
 	bool is_black;
