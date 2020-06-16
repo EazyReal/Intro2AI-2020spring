@@ -1,8 +1,9 @@
-//#define MAC //if define this, mac testing
+#define MAC //if define this, mac testing
 //#define TESTBOARD //if def this, will enter interactive board testing first
 //#define LOG
 
 #define MIX_AGENT 14 //define to -1 if do not want to use minmax in end game
+//12
 
 /*
  g++ -std=c++14  -o win.exe *.cpp -lWs2_32
@@ -76,7 +77,9 @@ std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	int pos, value;
 	if(b.empty_cnt() <= MIX_AGENT )
 	{
+#ifdef LOG
 		cerr << "use mix agent" << endl;
+#endif
 		tie(pos, value) = min_max_agent(b, !b.lastc, 0);
 	}
 	pos = agent.best_action(b);
@@ -128,9 +131,9 @@ int main() {
 -1 0 0 1 2 1 2 -1
 1 2 1 2 2 1 2 1
 0 2 0 1 2 1 2 2
-0 1 0 2 1 2 1 2
+0 1 0 0 1 2 1 2
 2 1 1 1 2 1 1 2
 1 2 2 2 1 2 0 1
 2 1 1 1 1 1 2 0
--1 1 2 2 2 2 1 -1
+-1 1 1 2 0 0 0 -1
 */
