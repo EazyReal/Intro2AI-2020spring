@@ -71,6 +71,7 @@ public:
     bool check(int pos, int color); //check validity of action
     bool no_move();
     VI all_moves();
+    int empty_cnt();
     void add(int pos, int color);
     //void undo(int pos, int color);
     int simulate(int color, int pass_cnt = 0); //recursive mode

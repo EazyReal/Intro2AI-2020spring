@@ -204,6 +204,12 @@ int min_max(board cur_b, int c, int pass_cnt)
 }
 #endif
 
+int board::empty_cnt()
+{
+    int cnt = 0;
+    trav(i, j) if(b[i][j] == EMPTY) cnt++;
+    return cnt;
+}
 
 //return pos value
 pair<int, int> min_max_agent(board cur_b, int c, int pass_cnt)
