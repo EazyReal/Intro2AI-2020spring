@@ -4,7 +4,7 @@
 #define USE_HEURISTIC 
 #define MIN_MAX
 // min max sart when move is less than?
-#define MIN_MAX_THRESHOULD 4
+#define MIN_MAX_THRESHOULD 3
 
 // dependencys
 #include <bits/stdc++.h>
@@ -86,5 +86,6 @@ private:
 };
 
 int min_max(board cur_b, int color, int pass_cnt=0);
+pair<int,int> min_max_agent(board cur_b, int color, int pass_cnt=0);
 
 #endif //BOARDH

@@ -1,6 +1,8 @@
-#define MAC //if define this, mac testing
+//#define MAC //if define this, mac testing
 //#define TESTBOARD //if def this, will enter interactive board testing first
-#define LOG
+//#define LOG
+
+#define MIX_AGENT 8 //define to -1 if do not want to use minmax in end game
 
 /*
  g++ -std=c++14  -o win.exe *.cpp -lWs2_32
@@ -17,6 +19,12 @@ UCB_C
 H_INNER
 RESIGN
 TIMELIMIT
+
+opion:
+USE HERISTIC?
+MIX_AGENT? 
+MIN_MAX? (when MCTS use max)
+MIN_MAX_THRESHOULD? (when MCTS use min max)
 */
 
 
@@ -65,7 +73,13 @@ std::vector<int> GetStep(std::vector<std::vector<int>>& brd, bool is_black) {
 	MCTS agent;
 	board b(brd, is_black); // black to play => is_black = 1 => lastc = 1
 	//b.print();
-	int pos = agent.best_action(b);
+	int pos, value;
+	if(b.all_moves().size() <= MIX_AGENT )
+	{
+		cerr << "use mix agent" << endl;
+		tie(pos, value) = min_max_agent(b, !b.lastc, 0);
+	}
+	pos = agent.best_action(b);
 	return vector<int>({pos/BOARDSZ, pos%BOARDSZ});
 }
 
@@ -109,4 +123,14 @@ int main() {
 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 -1 0 0 0 0 0 0 -1
+
+
+-1 0 0 1 2 1 2 -1
+1 2 1 2 2 1 2 1
+0 2 0 1 2 1 2 2
+0 1 0 2 1 2 1 2
+2 1 1 1 2 1 1 2
+1 2 2 2 1 2 0 1
+2 1 1 1 1 1 2 0
+-1 1 2 2 2 2 1 -1
 */
