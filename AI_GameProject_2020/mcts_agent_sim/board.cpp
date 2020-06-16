@@ -159,24 +159,79 @@ int board::status()
     return (w == bl ? TIE : ( w > bl ? WHITE : BLACK));
 }
 
+
+//def minmax
+
+#ifdef MIN_MAX
+int min_max(board cur_b, int c, int pass_cnt)
+{
+    assert(c == !cur_b.lastc);
+    VI moves = cur_b.all_moves();
+    int n = moves.size();
+    if(n == 0)
+    {
+        pass_cnt++;
+        cur_b.add(-1, c);
+        if(pass_cnt == 2) return cur_b.status();
+        else return min_max(cur_b, !c, pass_cnt);
+    }
+    int best = (c==1) ? 0: 1;
+    rep(i, 0, n)
+    {
+        board nxt_b = cur_b;
+        nxt_b.add(moves[i], c);
+        int ret = min_max(nxt_b, !c, 0);
+        if(c == 1) //is white 
+        {
+            if(ret == 1) {best = 1; break;}
+            else if(ret == 0) continue;
+            else if(ret == -1) {
+                if(best == 0) best = -1;
+            }
+        } 
+        else if(c == 0) //is black
+        {
+            if(ret == 0) {best = 0; break;}
+            else if(ret == 1) continue;
+            else if(ret == -1) {
+                if(best == 1) best = -1;
+            }
+        } 
+        //delete nxt_b;
+    }
+    //cerr << best << endl;
+    return best;
+}
+#endif
+
 int board::simulate(int c, int pass_cnt)
 {
     assert(c == !lastc);
     VI moves = all_moves();
     int n = moves.size();
+#ifdef MIN_MAX
+    if(n <= MIN_MAX_THRESHOULD)
+    {
+        board mm_b = *this;
+        return min_max(mm_b, c, 0);
+    }
+#endif 
     if(n == 0)
     {
         add(-1, c);
         pass_cnt++;
         if(pass_cnt == 2) return status(); 
-        else return simulate(!c, pass_cnt+1);
+        else return simulate(!c, pass_cnt);
     }
     int sum = 0;
     VI distribution(n);
     rep(i, 0, n)
     {
         DECODE(moves[i], x, y);
+        distribution[i] = 1; //if no use h
+#ifdef USE_HEURISTIC 
         distribution[i] = H[x][y];
+#endif
         sum += distribution[i];
         distribution[i] += (i>0) ? distribution[i-1] : 0;
     }
@@ -184,7 +239,7 @@ int board::simulate(int c, int pass_cnt)
     int sample_id = 0;
     rep(i, 0, n)
     {
-        if(sample_num >= (i>0) ? distribution[i-1] : 0 && sample_num < distribution[i])
+        if(sample_num >= ((i>0) ? distribution[i-1] : 0) && sample_num < distribution[i])
         {
             sample_id = i;
             break;

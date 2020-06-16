@@ -4,9 +4,19 @@
 
 /*
  g++ -std=c++14  -o win.exe *.cpp -lWs2_32
+
+output file name should contain 
+author-team_no.-algorithm-timelimit-feature.exe
+
  C:\Windows\servicing\LCU\Package_for_RollupFix~31bf3856ad364e35~amd64~~17763.1282.1.9\wow64_microsoft-windows-w..nfrastructure-ws232_31bf3856ad364e35_10.0.17763.771_none_71b07ea3887c9605\r
 
 cacls .\Sample1.exe /g everyone:f
+
+check team_id, time, parameters everytime
+UCB_C
+H_INNER
+RESIGN
+TIMELIMIT
 */
 
 

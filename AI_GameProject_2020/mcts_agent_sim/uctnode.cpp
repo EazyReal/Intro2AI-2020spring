@@ -77,7 +77,7 @@ void Node::update(int result)
 {
   if(result == color) num += 2;
   else if(result == -1) num ++;
-  cnt++;
+  cnt+=2;
   //assert(cnt != 0);
   log_cnt = log(cnt);
 }

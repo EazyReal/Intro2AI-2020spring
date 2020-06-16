@@ -4,8 +4,9 @@
 #include "uctnode.h"
 
 #define USEROUNDS 
+#define LOG
 
-#define DEFAUT_TIME_PER_STEP (time_t(0.5*CLOCKS_PER_SEC))
+//#define DEFAUT_TIME_PER_STEP (time_t(0.5*CLOCKS_PER_SEC)) not used
 #define DEFAUT_SIMS 5000
 #define BLOCKSIZE 50
 
@@ -26,7 +27,7 @@ public:
   void clear(); //clear MCTS by delete root
 
   Node* select();
-  bool roll_out();
+  int roll_out();
   void backpropogation(bool res);
 
   int total;

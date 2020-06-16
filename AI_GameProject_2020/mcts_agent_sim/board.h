@@ -2,6 +2,9 @@
 #define BOARDH
 
 #define USE_HEURISTIC 
+#define MIN_MAX
+// min max sart when move is less than?
+#define MIN_MAX_THRESHOULD 4
 
 // dependencys
 #include <bits/stdc++.h>
@@ -18,8 +21,9 @@ using namespace std;
 #define EMPTY -1
 #define CORNER -2
 
+
 //heuristic values
-#define H_EDGE 2
+#define H_EDGE 3
 #define H_INSIDE 2
 #define H_NEDGE 1
 
@@ -68,7 +72,9 @@ public:
     bool no_move();
     VI all_moves();
     void add(int pos, int color);
+    //void undo(int pos, int color);
     int simulate(int color, int pass_cnt = 0); //recursive mode
+    //int min_max(int color, int pass_cnt = 0);
     int status(); //update information
     void print();
 
@@ -78,5 +84,7 @@ public:
 
 private:
 };
+
+int min_max(board cur_b, int color, int pass_cnt=0);
 
 #endif //BOARDH

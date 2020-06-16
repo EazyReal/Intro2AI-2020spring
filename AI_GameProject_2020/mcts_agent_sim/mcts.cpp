@@ -54,7 +54,7 @@ Node* MCTS::select()
     return cur;
 }
 
-bool MCTS::roll_out() //the one in the board
+int MCTS::roll_out() //the one in the board
 {
     bool c = !simu_board.just_play_color(); //c = cur player to move
     int res = simu_board.simulate(c);
@@ -122,10 +122,13 @@ int MCTS::best_action(board& init_b, int simu_per_step)
             }
         }
         //simulation, with the intuition of two-go position is better
+        //cerr << "before rollout";
         res = roll_out();
+        //cerr << "after rollout";
         //backpropogation
         backpropogation(res);
-        if((clock()-start_t)/CLOCKS_PER_SEC > TIME_LIMIT) break;
+        //cerr << "at iter " << ep <<  "time used: " << ((clock()-start_t)*1.0/CLOCKS_PER_SEC) << endl;
+        if((clock()-start_t)*1.0/CLOCKS_PER_SEC > TIME_LIMIT) break;
     }
     //return result, forget to judge NULL at first
     //best policy is of highest rave_winrate(in opening) and highest winrate(in ending)
